@@ -1,34 +1,79 @@
+{{!-- template-lint-disable no-inline-styles --}}
 <style>
   #content {
-    padding-left: 348px;
+    padding-left: 310px;
   }
 
   #top-menu {
-    padding-left: 300px;
+    padding-left: 250px;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  #sidebar {
+    background-color: #1C45EF !important;
+  }
+
+  #sidebar-header {
+    color: white;
+    font-weight: 400;
+  }
+
+  #sidebar-img {
+    border-radius: 100px;
   }
   
 </style>
 <div class="ui desktop only grid">
-  <div class="ui huge top fixed menu" id="top-menu">
+  <div class="ui large top borderless fixed menu" id="top-menu">
     <div class="item">
-      dcsomdcposmdpocm
+      <i class="list ul icon"></i>
     </div>
-    <a class="item">Features</a>
-    <a class="item">Testimonials</a>
-    <a class="item">Sign-in</a>
+    <div class="right menu">
+      <a class="item">
+        <i class="far fa-bell"></i>
+      </a>
+      <a class="item">
+        <i class="envelope outline icon"></i>
+      </a>
+      {{#if model.client.admin}}
+        <a href="item">
+          <i class="cog icon"></i>
+        </a>
+      {{/if}}
+      <a class="item">
+        <img src="/profile.png" alt="" class="ui avatar image">
+      </a>
+    </div>
   </div>
-  <div class="ui huge left fixed borderless inverted vertical menu">
-    <div class="item">
-      fiodifnvoin
+  <div class="ui large left fixed borderless inverted vertical menu" id="sidebar">
+    <div class="header item">
+      <h2 class="ui header" id="sidebar-header">
+        <img src="https://eu.ui-avatars.com/api/?name=Zubeir+Mohamed" class="ui medium image" id="sidebar-img" alt="">
+        ZubeirTech
+      </h2>
     </div>
-    <a class="item">Features</a>
-    <a class="item">Testimonials</a>
-    <a class="item">Sign-in</a>
+    <a class="item"></a>
+    <a class="item">
+      <p>Main Menu</p>
+      <div class="ui divider" style="background-color: #D8D8D8;"></div>
+    </a>
+    <a class="item"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Features</a>
+    <a class="item"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Features</a>
+    <a class="item"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Features</a>
+    <a class="item"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Features</a>
+    <a class="item"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Features</a>
+    <a class="item"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Features</a>
+    <a class="item"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Features</a>
+    <a class="item"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Features</a>
+    <a class="item"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Features</a>
+    <a class="item"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Features</a>
+    <a class="item"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Features</a>
   </div>
   
   <div class="ui padded grid" id="content">
     <br>
     <br>
-    sdcnsdicnsoidncoisndocinsspodcmpsodmcposmdcposdmcpomsdpcosmdpcomsdpcmsdpocmspdomcpsdomc
+    <br>
+    {{outlet}}
   </div>
 </div>
