@@ -21,13 +21,28 @@
   #sidebar-img {
     border-radius: 100px;
   }
+
+  #mobmenu {
+    background-color: #1C45EF !important;
+  }
+
+  #mobtopmenu {
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
+  }
   
 </style>
-<div class="ui desktop only grid">
+
+<script>
+  function toggleSidebar() {
+    $('.ui.sidebar').sidebar('toggle');
+  }
+</script>
+
+<div class="ui computer only padded grid">
   <div class="ui large top borderless fixed menu" id="top-menu">
-    <div class="item">
-      <i class="list ul icon"></i>
-    </div>
+    <a href="" class="item">
+      Money Transfer
+    </a>
     <div class="right menu">
       <a class="item">
         <i class="far fa-bell"></i>
@@ -35,29 +50,27 @@
       <a class="item">
         <i class="envelope outline icon"></i>
       </a>
-      {{#if model.client.admin}}
-        <a href="item">
-          <i class="cog icon"></i>
-        </a>
-      {{/if}}
       <a class="item">
         <img src="/profile.png" alt="" class="ui avatar image">
       </a>
     </div>
   </div>
   <div class="ui large left fixed borderless inverted vertical menu" id="sidebar">
-    <div class="header item">
-      <h2 class="ui header" id="sidebar-header">
+    <a class="header item">
+      <h2 class="ui medium header" id="sidebar-header">
         <img src="https://eu.ui-avatars.com/api/?name=Zubeir+Mohamed" class="ui medium image" id="sidebar-img" alt="">
         ZubeirTech
       </h2>
-    </div>
-    <a class="item"></a>
-    <a class="item">
+    </a>
+    <div class="item"></div>
+    <div class="item">
       <p>Main Menu</p>
       <div class="ui divider" style="background-color: #D8D8D8;"></div>
-    </a>
+    </div>
     <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Dashboard</a>
+    {{#if model.client.admin}}
+      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; User Management</a>
+    {{/if}}
     <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Branch Management</a>
     <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Remittance Management</a>
     <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Customer Management</a>
@@ -74,5 +87,55 @@
     <br>
     <br>
     {{outlet}}
+  </div>
+</div>
+
+<div class="ui tablet mobile only padded grid">
+  <div class="ui top fixed borderless fluid menu" id="mobtopmenu">
+    <div class="item">
+      <button class="ui icon toggle basic secondary button" onclick="toggleSidebar()">
+        <i class="content icon"></i>
+      </button>
+    </div>
+    <div class="right menu">
+      <a href="/" class="header item" id="mobmenuheader">
+        Money Transfer
+      </a>
+    </div>
+    <div class="ui left demo vertical borderless inverted sidebar menu" id="mobmenu">
+      <a class="header item">
+        <h2 class="ui medium header" id="sidebar-header">
+          <img src="https://eu.ui-avatars.com/api/?name=Zubeir+Mohamed" class="ui medium image" id="sidebar-img" alt="">
+          ZubeirTech
+        </h2>
+      </a>
+      <div class="item"></div>
+      <div class="item">
+        <p>Main Menu</p>
+        <div class="ui divider" style="background-color: #D8D8D8;"></div>
+      </div>
+      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Dashboard</a>
+      {{#if model.client.admin}}
+        <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; User Management</a>
+      {{/if}}
+      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Branch Management</a>
+      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Remittance Management</a>
+      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Customer Management</a>
+      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Settlements</a>
+      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Reports</a>
+      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Manual Journey</a>
+      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Deposit</a>
+      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Downloads</a>
+      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Online Remittances</a>
+    </div>
+  </div>
+  <div class="ui container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <button class="ui button">
+      s,dcsd,c[s,d[pc]]
+    </button>
   </div>
 </div>
