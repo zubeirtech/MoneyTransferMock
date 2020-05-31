@@ -7,6 +7,16 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('remittance');
+  this.route('user');
+  this.route('branch');
+  this.route('customer');
+  this.route('settlement');
+  this.route('report');
+  this.route('deposit');
+  this.route('manual-journey');
+  this.route('downloads');
+  this.route('online-remittances');
 });
 
 export default Router;

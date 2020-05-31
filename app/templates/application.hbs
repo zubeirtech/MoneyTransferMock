@@ -29,6 +29,11 @@
   #mobtopmenu {
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19);
   }
+
+  .menu-items {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+  }
   
 </style>
 
@@ -69,17 +74,37 @@
     </div>
     <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Dashboard</a>
     {{#if model.client.admin}}
-      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; User Management</a>
+      {{#link-to "user" class="item menu-items"}}
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; User Management
+      {{/link-to}}
     {{/if}}
-    <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Branch Management</a>
-    <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Remittance Management</a>
-    <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Customer Management</a>
-    <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Settlements</a>
-    <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Reports</a>
-    <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Manual Journey</a>
-    <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Deposit</a>
-    <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Downloads</a>
-    <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Online Remittances</a>
+    {{#link-to "branch" class="item menu-items"}}
+      <i class="fas fa-genderless fa-lg"></i> &nbsp; Branch Management
+    {{/link-to}}
+    {{#link-to "remittance" class="item menu-items"}}
+      <i class="fas fa-genderless fa-lg"></i> &nbsp; Remittance Management
+    {{/link-to}}
+    {{#link-to "customer" class="item menu-items"}}
+      <i class="fas fa-genderless fa-lg"></i> &nbsp; Customer Management
+    {{/link-to}}
+    {{#link-to "settlement" class="item menu-items"}}
+      <i class="fas fa-genderless fa-lg"></i> &nbsp; Settlements
+    {{/link-to}}
+    {{#link-to "report" class="item menu-items"}}
+      <i class="fas fa-genderless fa-lg"></i> &nbsp; Reports
+    {{/link-to}}
+    {{#link-to "manual-journey" class="item menu-items"}}
+      <i class="fas fa-genderless fa-lg"></i> &nbsp; Manual Journey
+    {{/link-to}}
+    {{#link-to "deposit" class="item menu-items"}}
+      <i class="fas fa-genderless fa-lg"></i> &nbsp; Deposit
+    {{/link-to}}
+    {{#link-to "downloads" class="item menu-items"}}
+      <i class="fas fa-genderless fa-lg"></i> &nbsp; Downloads
+    {{/link-to}}
+    {{#link-to "online-remittances" class="item menu-items"}}
+      <i class="fas fa-genderless fa-lg"></i> &nbsp; Online Remittances
+    {{/link-to}}
   </div>
   
   <div class="ui padded grid" id="content">
@@ -119,17 +144,37 @@
       </div>
       <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Dashboard</a>
       {{#if model.client.admin}}
-        <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; User Management</a>
+        {{#link-to "user" class="item menu-items"}}
+          <i class="fas fa-genderless fa-lg"></i> &nbsp; User Management
+        {{/link-to}}
       {{/if}}
-      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Branch Management</a>
-      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Remittance Management</a>
-      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Customer Management</a>
-      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Settlements</a>
-      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Reports</a>
-      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Manual Journey</a>
-      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Deposit</a>
-      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Downloads</a>
-      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Online Remittances</a>
+      {{#link-to "branch" class="item menu-items"}}
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; Branch Management
+      {{/link-to}}
+      {{#link-to "remittance" class="item menu-items"}}
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; Remittance Management
+      {{/link-to}}
+      {{#link-to "customer" class="item menu-items"}}
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; Customer Management
+      {{/link-to}}
+      {{#link-to "settlement" class="item menu-items"}}
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; Settlements
+      {{/link-to}}
+      {{#link-to "report" class="item menu-items"}}
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; Reports
+      {{/link-to}}
+      {{#link-to "manual-journey" class="item menu-items"}}
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; Manual Journey
+      {{/link-to}}
+      {{#link-to "deposit" class="item menu-items"}}
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; Deposit
+      {{/link-to}}
+      {{#link-to "downloads" class="item menu-items"}}
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; Downloads
+      {{/link-to}}
+      {{#link-to "online-remittances" class="item menu-items"}}
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; Online Remittances
+      {{/link-to}}
     </div>
   </div>
   <div class="ui container">
