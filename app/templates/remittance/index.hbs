@@ -1,0 +1,79 @@
+{{!-- template-lint-disable no-inline-styles --}}
+<style>
+  .main {
+    font-weight: 200 !important;
+    color: #001737!important;
+  }
+
+  #link: {
+    color: inherit !important;
+  }
+
+  #input {
+    border: 1px solid #AEAEAE;
+    width: 280px;
+  }
+
+  th {
+    font-weight: 600 !important;
+    color: #001737!important;
+  }
+
+</style>
+
+<br>
+<br>
+<br>
+{{#link-to "dashboard"}}
+  <a >Dashboard ></a>
+{{/link-to}}
+
+<h2 class="ui medium header main">
+  Remittance Management
+</h2>
+{{#link-to "remittance.new"}}
+  <button style="color: #001737; background-color: transparent; border: 0;">
+    <i class="fas fa-plus" style="color: #2B80FF"></i> Add
+  </button>
+{{/link-to}}
+&nbsp;&nbsp;&nbsp;
+{{#link-to "remittance.new"}}
+  <button style="color: #001737; background-color: transparent; border: 0;">
+    <i class="fas fa-search" style="color: #2B80FF"></i> Trace
+  </button>
+{{/link-to}}
+<div class="ui divider" style="border: 1px solid #CDD6DC"></div>
+
+<div class="ui input" id="input">
+  {{input value=val placeholder="Search by name..."}}
+</div>
+
+<table class="ui very basic stackable table">
+  <thead>
+    <tr>
+      <th>Sender</th>
+      <th>Receiver</th>
+      <th>Amount</th>
+      <th>Date of Creation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John</td>
+      <td>Approved</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Jamie</td>
+      <td>Approved</td>
+      <td>Requires call</td>
+    </tr>
+    <tr>
+      <td>Jill</td>
+      <td>Denied</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+
+

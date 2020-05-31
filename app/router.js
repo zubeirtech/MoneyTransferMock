@@ -7,7 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('remittance');
+  this.route('remittance', function() {
+    this.route('new');
+  });
   this.route('user');
   this.route('branch');
   this.route('customer');
@@ -17,6 +19,7 @@ Router.map(function() {
   this.route('manual-journey');
   this.route('downloads');
   this.route('online-remittances');
+  this.route('dashboard');
 });
 
 export default Router;

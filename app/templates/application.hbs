@@ -49,9 +49,13 @@
       Money Transfer
     </a>
     <div class="right menu">
-      <a class="item">
+      <div class="ui dropdown item">
         <i class="far fa-bell"></i>
-      </a>
+        <div class="menu">
+          <a href="" class="item"> <i class="trash icon"></i> Remittance sended</a>
+          <a href="" class="item"> <i class="trash icon"></i> Created new user</a>
+        </div>
+      </div>
       <a class="item">
         <i class="envelope outline icon"></i>
       </a>
@@ -72,7 +76,9 @@
       <p>Main Menu</p>
       <div class="ui divider" style="background-color: #D8D8D8;"></div>
     </div>
-    <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Dashboard</a>
+    {{#link-to "dashboard" class="item menu-items"}}
+      <i class="fas fa-genderless fa-lg"></i> &nbsp; Dashboard
+    {{/link-to}}
     {{#if model.client.admin}}
       {{#link-to "user" class="item menu-items"}}
         <i class="fas fa-genderless fa-lg"></i> &nbsp; User Management
@@ -106,19 +112,12 @@
       <i class="fas fa-genderless fa-lg"></i> &nbsp; Online Remittances
     {{/link-to}}
   </div>
-  
-  <div class="ui padded grid" id="content">
-    <div class="ui container">
-      <br>
-      <br>
-      <br>
-      {{outlet}}
-      bbsdmpsmdcpom
-    </div>
-  </div>
+  <div class="sixteen wide column" id="content">
+    {{outlet}}
+  </div>  
 </div>
 
-<div class="ui tablet mobile only padded grid">
+<div class="ui tablet only mobile only padded grid">
   <div class="ui top fixed borderless fluid menu" id="mobtopmenu">
     <div class="item">
       <button class="ui icon toggle basic secondary button" onclick="toggleSidebar()">
@@ -142,7 +141,9 @@
         <p>Main Menu</p>
         <div class="ui divider" style="background-color: #D8D8D8;"></div>
       </div>
-      <a class="item" style="font-size: 14px;"> <i class="fas fa-genderless fa-lg"></i> &nbsp; Dashboard</a>
+      {{#link-to "dashboard" class="item menu-items"}}
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; Dashboard
+      {{/link-to}}
       {{#if model.client.admin}}
         {{#link-to "user" class="item menu-items"}}
           <i class="fas fa-genderless fa-lg"></i> &nbsp; User Management
@@ -177,13 +178,7 @@
       {{/link-to}}
     </div>
   </div>
-  <div class="ui container">
-    <br>
-    <br>
-    <br>
-    <br>
-    <button class="ui button">
-      s,dcsd,c[s,d[pc]]
-    </button>
+  <div class="sixteen wide column">
+    {{outlet}}
   </div>
 </div>
