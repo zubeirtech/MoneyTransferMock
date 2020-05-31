@@ -87,14 +87,10 @@
         </div>
         <div class="inline fields">
           <div class="field">
-            <div class="ui radio checkbox" >
-              {{ui-radio name="customerType" label="Individual" value="Individual" current=customerType onChange=(action (mut customerType))}}
-            </div>
+            {{ui-radio name="customerType" label="Individual" value="Individual" current=customerType onChange=(action (mut customerType))}}
           </div>
           <div class="field">
-            <div class="ui radio checkbox" >
-              {{ui-radio name="customerType" label="Coorporate" value="Coorporate" current=customerType  onChange=(action (mut customerType))}}
-            </div>
+            {{ui-radio name="customerType" label="Coorporate" value="Coorporate" current=customerType  onChange=(action (mut customerType))}}
           </div>
         </div> 
         <div class=" required field">
@@ -165,19 +161,13 @@
         </div>
         <div class="inline fields">
           <div class="field">
-            <div class="ui radio checkbox" >
-              {{ui-radio name="remittanceType" label="Bank Transfer" value="Bank Transfer" current=remittanceType onChange=(action (mut remittanceType))}}
-            </div>
+            {{ui-radio name="remittanceType" label="Bank Transfer" value="Bank Transfer" current=remittanceType onChange=(action (mut remittanceType))}}
           </div>
           <div class="field">
-            <div class="ui radio checkbox" >
-              {{ui-radio name="remittanceType" label="Cash Collection" value="Cash Collection" current=remittanceType onChange=(action (mut remittanceType))}}
-            </div>
+            {{ui-radio name="remittanceType" label="Cash Collection" value="Cash Collection" current=remittanceType onChange=(action (mut remittanceType))}}
           </div>
           <div class="field">
-            <div class="ui radio checkbox" >
-              {{ui-radio name="remittanceType" label="Mobile Money" value="Mobile Money" current=remittanceType onChange=(action (mut remittanceType))}}
-            </div>
+            {{ui-radio name="remittanceType" label="Mobile Money" value="Mobile Money" current=remittanceType onChange=(action (mut remittanceType))}}
           </div>
         </div>
         <div class="required field">
@@ -190,9 +180,7 @@
             </div>
           </div>
           <div class="field">
-            <div class="ui radio checkbox" >
-              {{ui-radio name="mmtType" label="Mpesa Transfer" value="Mpesa Transfer" current=mmtType onChange=(action (mut mmtType))}}
-            </div>
+            {{ui-radio name="mmtType" label="Mpesa Transfer" value="Mpesa Transfer" current=mmtType onChange=(action (mut mmtType))}}
           </div>
         </div>
         <div class="required field">
@@ -233,15 +221,15 @@
         </div>
         <div class="required field">
           <label for="">Service Percentage in %</label>
-          {{input value=servicePercentage placeholder="Enter service percentage..." type="number"}}
+          {{input value=servicePercentage placeholder="Enter service percentage..." type="number" class="myform"}}
         </div>
         <div class="required field">
           <label for="">Service Charges in {{this.currency}}</label>
-          {{input value=serviceCharges placeholder="Enter service charges" type="number"}}
+          {{input value=serviceCharges placeholder="Enter service charges" type="number" class="myform"}}
         </div>
         <div class="required field">
           <label for="">Total Amount in {{this.currency}}</label>
-          {{input value=totalAmount placeholder="Enter total amount" type="number"}}
+          {{input value=totalAmount placeholder="Enter total amount" type="number" class="myform"}}
         </div>
       </div>
     </div>
@@ -249,15 +237,15 @@
       <div class="ui form">
         <div class="required field">
           <label for="">Currency to {{this.currency}} Rate</label>
-          {{input value=currencyRate placeholder="Enter currency rate..." type="number"}}
+          {{input value=currencyRate placeholder="Enter currency rate..." type="number" class="myform"}}
         </div>
         <div class="required field">
           <label for="">Curr to Curr Rate</label>
-          {{input value=currToCurr placeholder="Enter curr to curr" type="number"}}
+          {{input value=currToCurr placeholder="Enter curr to curr" type="number" class="myform"}}
         </div>
         <div class="required field">
           <label for="">Receiving Amount</label>
-          {{input value=receivingAmount placeholder="Enter receiving amount" type="number"}}
+          {{input value=receivingAmount placeholder="Enter receiving amount" type="number" class="myform"}}
         </div>
         <div class="required field">
           <label for="">Total Amount in {{this.currency}}</label>
@@ -276,6 +264,51 @@
 
       </div> 
     </div>
+  </div>
+{{/if}}
+
+
+{{#if paymentView}}
+  <div class="ui stackable grid">
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="required grouped fields">
+          <label for="fruit">Payment Types:</label>
+          <div class="field">
+            {{ui-radio name="paymentType" label="Cash" value="Cash" current=paymentType onChange=(action (mut paymentType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="paymentType" label="Cheque" value="Cheque" current=paymentType onChange=(action (mut paymentType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="paymentType" label="Email transfer" value="Email transfer" current=paymentType onChange=(action (mut paymentType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="paymentType" label="Wire" value="Wire" current=paymentType onChange=(action (mut paymentType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="paymentType" label="Deposit Account" value="Deposit Account" current=paymentType onChange=(action (mut paymentType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="paymentType" label="Card" value="Card" current=paymentType onChange=(action (mut paymentType))}}
+          </div>
+        </div>
+        <div class="required field">
+          <label for="">Amount</label>
+          {{input value=paymentAmount placeholder="Enter payment amount..." class="myform" type="number"}}
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column"></div>
+  </div>
+{{/if}}
+
+{{#if reviewView}}
+  <div class="ui stackable grid">
+    <div class="eight wide column">
+      
+    </div>
+    <div class="eight wide column"></div>
   </div>
 {{/if}}
 
