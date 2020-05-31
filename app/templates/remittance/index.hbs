@@ -24,6 +24,7 @@
 <br>
 <br>
 <br>
+{{!-- BREADCRUMB --}}
 {{#link-to "dashboard"}}
   <a >Dashboard ></a>
 {{/link-to}}
@@ -32,21 +33,23 @@
   Remittance Management
 </h2>
 {{#link-to "remittance.new"}}
-  <button style="color: #001737; background-color: transparent; border: 0;">
+  <button style="color: #001737; background-color: transparent; border: 0; cursor: pointer">
     <i class="fas fa-plus" style="color: #2B80FF"></i> Add
   </button>
 {{/link-to}}
 &nbsp;&nbsp;&nbsp;
 {{#link-to "remittance.new"}}
-  <button style="color: #001737; background-color: transparent; border: 0;">
+  <button style="color: #001737; background-color: transparent; border: 0; cursor: pointer;">
     <i class="fas fa-search" style="color: #2B80FF"></i> Trace
   </button>
 {{/link-to}}
 <div class="ui divider" style="border: 1px solid #CDD6DC"></div>
 
 <div class="ui input" id="input">
-  {{input value=val placeholder="Search by name..."}}
+  {{input value=val placeholder="Search by name..." keyUp=(action "search" val)}}
 </div>
+<br>
+<br>
 
 <table class="ui very basic stackable table">
   <thead>
@@ -58,21 +61,22 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>John</td>
-      <td>Approved</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <td>Jamie</td>
-      <td>Approved</td>
-      <td>Requires call</td>
-    </tr>
-    <tr>
-      <td>Jill</td>
-      <td>Denied</td>
-      <td>None</td>
-    </tr>
+    {{#each model as |rem|}}
+      <tr>
+        <td>
+          {{rem.sender}}
+        </td>
+        <td>
+          {{rem.receiver}}
+        </td>
+        <td>
+          {{rem.amount}}
+        </td>
+        <td>
+          {{rem.date}}
+        </td>
+      </tr>
+    {{/each}}
   </tbody>
 </table>
 
