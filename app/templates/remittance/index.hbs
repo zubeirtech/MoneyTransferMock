@@ -65,9 +65,13 @@
     {{#each model as |rem|}}
       <tr>
         {{#if (eq rem.status "Approve")}}
-          <a class="ui orange label">Approve</a>
+          {{#link-to "remittance.info.approve" rem class="ui blue label"}}
+            Approve            
+          {{/link-to}}
         {{else}}
-          <a class="ui basic green label">Done</a>
+          {{#link-to "remittance.info" rem class="ui basic green label"}}
+            Done
+          {{/link-to}}
         {{/if}}
         <td>
           {{rem.sender}}

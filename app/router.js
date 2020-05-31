@@ -9,6 +9,9 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('remittance', function() {
     this.route('new');
+    this.route('info', {path: ':id'}, function() {
+      this.route('approve');
+    });
   });
   this.route('user');
   this.route('branch');
