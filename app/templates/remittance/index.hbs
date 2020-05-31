@@ -65,9 +65,11 @@
     {{#each model as |rem|}}
       <tr>
         {{#if (eq rem.status "Approve")}}
-          {{#link-to "remittance.info.approve" rem class="ui blue label"}}
-            Approve            
-          {{/link-to}}
+          {{#ui-popup content="Approve remittance by sender"}}
+            {{#link-to "remittance.info.approve" rem class="ui blue label"}}
+              Approve
+            {{/link-to}}
+          {{/ui-popup}}
         {{else}}
           {{#link-to "remittance.info" rem class="ui basic green label"}}
             Done
