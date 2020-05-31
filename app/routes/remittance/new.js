@@ -1,9 +1,9 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
+
     model() {
-        return [
-            {
+        return [{
                 id: 1,
                 sender: "John",
                 receiver: "Jill",
@@ -36,6 +36,6 @@ export default Route.extend({
                 date: new Date().toISOString(),
                 status: "Done"
             }
-        ]        
+        ]
     }
 });

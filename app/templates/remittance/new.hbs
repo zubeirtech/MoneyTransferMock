@@ -127,15 +127,15 @@
       <div class="ui form">
         <div class="required field">
           <label for="">Relationship</label>
-          {{input value=relationship placeholder="Enter relationship..." }}
+          {{input value=relationship placeholder="Enter relationship..." class="myform"}}
         </div>
         <div class="required field">
           <label for="">Purpose</label>
-          {{input value=purpose placeholder="Enter purpose..."}}
+          {{input value=purpose placeholder="Enter purpose..." class="myform"}}
         </div>
         <div class="field">
           <label for="">Comments</label>
-          {{textarea value=comment placeholder="Enter comment..."}}
+          {{textarea value=comment placeholder="Enter comment..." class="myform"}}
         </div>
       </div>
     </div>
@@ -153,7 +153,7 @@
             <i class="dropdown icon"></i>
             <div class="menu">
               {{#each model as |rem|}}
-                <div data-value={{rem.id}} class="ite" role="button" {{action "selectReceiver" rem}}>
+                <div data-value={{rem.id}} class="item" role="button" {{action "selectReceiver" rem}}>
                   {{rem.receiver}}
                 </div>
               {{/each}}
@@ -204,6 +204,77 @@
           {{input value=receiverFullName placeholder="Enter full name..." class="myform" }}
         </div>
       </div>
+    </div>
+  </div>
+{{/if}}
+
+
+{{#if this.amountView}}
+  <div class="ui stackable grid">
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="required field">
+          <label for="">Amount</label>
+          {{input value=amount type="number" placeholder="Enter amount..." class="myform" }}
+        </div>
+        <div class="required field">
+          <label for="">Currency</label>
+          {{#ui-dropdown class="selection" selected="Bob" onChange=(action (mut c))}}
+            <div class="default text">Currencies</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              {{#each currencies as |c|}}
+                <div data-value={{c.id}} class="item" role="button" {{action "setCurrency" c.value}}>
+                  {{c.value}}
+                </div>
+              {{/each}}
+            </div>
+          {{/ui-dropdown}}
+        </div>
+        <div class="required field">
+          <label for="">Service Percentage in %</label>
+          {{input value=servicePercentage placeholder="Enter service percentage..." type="number"}}
+        </div>
+        <div class="required field">
+          <label for="">Service Charges in {{this.currency}}</label>
+          {{input value=serviceCharges placeholder="Enter service charges" type="number"}}
+        </div>
+        <div class="required field">
+          <label for="">Total Amount in {{this.currency}}</label>
+          {{input value=totalAmount placeholder="Enter total amount" type="number"}}
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="required field">
+          <label for="">Currency to {{this.currency}} Rate</label>
+          {{input value=currencyRate placeholder="Enter currency rate..." type="number"}}
+        </div>
+        <div class="required field">
+          <label for="">Curr to Curr Rate</label>
+          {{input value=currToCurr placeholder="Enter curr to curr" type="number"}}
+        </div>
+        <div class="required field">
+          <label for="">Receiving Amount</label>
+          {{input value=receivingAmount placeholder="Enter receiving amount" type="number"}}
+        </div>
+        <div class="required field">
+          <label for="">Total Amount in {{this.currency}}</label>
+          {{#ui-dropdown class="selection" selected="Bob" onChange=(action (mut c))}}
+            <div class="default text">Currencies</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              {{#each currencies as |c|}}
+                <div data-value={{c.id}} class="item" role="button">
+                  {{c.value}}
+                </div>
+              {{/each}}
+            </div>
+          {{/ui-dropdown}}
+        </div>
+
+      </div> 
     </div>
   </div>
 {{/if}}

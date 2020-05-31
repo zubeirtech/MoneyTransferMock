@@ -5,6 +5,21 @@ export default Controller.extend({
     
     senderView: true,
 
+    currencies: [
+        {
+            id: 1,
+            value: "USD"
+        },
+        {
+            id: 2,
+            value: "EUR"
+        },
+        {
+            id: 3,
+            value: "GBP"
+        }
+    ],
+
     items: ["sender", "receiver", "amount", "payment", "review"],
 
     setToInActiveBesides(active) {
@@ -25,6 +40,10 @@ export default Controller.extend({
 
         selectReceiver(rem) {
             set(this, 'receiverFullName', rem.receiver);
+        },
+
+        setCurrency(c) {
+            set(this, "currency", c);
         }
     }
 });
