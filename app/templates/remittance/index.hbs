@@ -54,6 +54,7 @@
 <table class="ui very basic stackable table">
   <thead>
     <tr>
+      <th>Status</th>
       <th>Sender</th>
       <th>Receiver</th>
       <th>Amount</th>
@@ -63,6 +64,11 @@
   <tbody>
     {{#each model as |rem|}}
       <tr>
+        {{#if (eq rem.status "Approve")}}
+          <a class="ui orange label">Approve</a>
+        {{else}}
+          <a class="ui basic green label">Done</a>
+        {{/if}}
         <td>
           {{rem.sender}}
         </td>
