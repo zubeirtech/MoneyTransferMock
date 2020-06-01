@@ -3,7 +3,7 @@ import { set } from '@ember/object';
 
 export default Controller.extend({
     
-    senderView: true,
+    reviewView: true,
 
     currencies: [
         {
