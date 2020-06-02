@@ -15,6 +15,7 @@ Router.map(function() {
   });
   this.route('user', function() {
     this.route('new');
+    this.route('info');
   });
   this.route('branch');
   this.route('customer');
