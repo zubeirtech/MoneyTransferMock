@@ -1,7 +1,93 @@
+{{!-- template-lint-disable no-inline-styles --}}
+
 <br>
 <br>
 <br>
 <br>
-{{model.firstName}}
+
+<style>
+  .myform {
+    border-radius: 0px !important;
+    border: 1px solid #AEAEAE !important;
+    background-color: transparent !important;
+  }
+
+  button {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400!important;
+  }
+
+  .approve {
+    background-color: #2B80FF !important;
+    color: white!important;
+  }
+
+  .mt-regular {
+    background-color: #DDE4EB !important;
+  }
+
+
+  .mt-dark {
+    color: #001737 !important;
+  }
+  
+</style>
+
+{{!-- BREADCRUMB --}}
+{{#link-to "dashboard"}}
+  <a >Dashboard ></a>
+{{/link-to}}
+{{!-- BREADCRUMB --}}
+{{#link-to "user"}}
+  <a >User ></a>
+{{/link-to}}
+
+<br>
+<br>
+
+{{#if editView}}
+  <button class="ui mt-dark mt-regular button" {{action "refresh"}}>
+    <i class="sync icon" style="color: #2B80FF;"></i> Remove changes
+  </button>
+  <br>
+  <br>
+{{/if}}
+
+<div class="ui stackable grid">
+  <div class="eight wide column">
+    <div class="ui compact form">
+      <div class="compact field">
+        <label for="">Sender: </label>
+        {{input value=model.firstName class="myform" keyUp=(action (mut editView) true)}}
+      </div>
+      <div class="field">
+        <label for="">Receiver</label>
+        {{input value=model.lastName class="myform" keyUp=(action (mut editView) true)}}
+      </div>
+      <div class="field">
+        <label for="">Amount</label>
+        {{input value=model.mobile class="myform" keyUp=(action (mut editView) true)}}
+      </div>
+      <div class="field">
+        <label for="">Date of Creation</label>
+        {{input value=model.email type="text" class="myform" keyUp=(action (mut editView) true)}}
+      </div>
+      <div class="field">
+        <label for=""> <i class="info icon"></i> Rest of user data would be displayed in real version!</label>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+{{#if editView}}
+  <button class="ui mt-dark mt-regular button" {{action "edit"}}>
+    <i class="fas fa-pencil-alt" style="color: #2B80FF"></i> Edit
+  </button>
+{{else}}
+  <button class="ui disabled button">
+    <i class="fas fa-pencil-alt"></i> Edit
+  </button>
+{{/if}}
  
 {{outlet}}

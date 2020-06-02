@@ -11,6 +11,24 @@
     border: 1px solid #AEAEAE !important;
     background-color: transparent !important;
   }
+
+  button {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400!important;
+  }
+
+  .approve {
+    background-color: #2B80FF !important;
+    color: white!important;
+  }
+
+  .mt-regular {
+    background-color: #DDE4EB !important;
+  }
+
+  .mt-dark {
+    color: #001737 !important;
+  }
 </style>
 
 {{!-- BREADCRUMB --}}
@@ -18,12 +36,20 @@
   <a >Dashboard ></a>
 {{/link-to}}
 {{!-- BREADCRUMB --}}
-{{#link-to "dashboard"}}
+{{#link-to "remittance"}}
   <a >Remittance ></a>
 {{/link-to}}
 
 <br>
 <br>
+
+{{#if editView}}
+  <button class="ui mt-dark mt-regular button" {{action "refresh"}}>
+    <i class="sync icon" style="color: #2B80FF;"></i> Remove changes
+  </button>
+  <br>
+  <br>
+{{/if}}
 
 <div class="ui stackable grid">
   <div class="eight wide column">
@@ -58,23 +84,23 @@
       <h4 class="ui dividing header">
         By deleting this remittance you are deleting sensitive data etc.
       </h4>
-      <button class="ui green button" style="border-radius: 0px;" {{action (mut deleteView) false}}>
+      <button class="ui mt-dark mt-regular button" {{action (mut deleteView) false}}>
         Cancel
       </button>
-      <button class="ui inverted red button" style="border-radius: 0px" {{action "delete"}}>
+      <button class="ui inverted red button"  {{action "delete"}}>
         <i class="trash icon"></i> Continue
       </button>
     </div>
   {{else}}
-    <button class="ui inverted orange button" style="border-radius: 0px; font-family: 'Roboto', sans serif" {{action "edit"}}>
-      <i class="edit icon"></i> Edit
+    <button class="ui mt-dark mt-regular button" {{action "edit"}}>
+      <i class="fas fa-pencil-alt" style="color: #2B80FF"></i> Edit
     </button>
-    <button class="ui red button" style="border-radius: 0px;" {{action (mut deleteView) true}}>
+    <button class="ui red button" {{action (mut deleteView) true}}>
       <i class="trash icon"></i> Delete
     </button>
   {{/if}}
 {{else}}
-  <button class="ui blue button" style="border-radius: 0px;" {{action "approve"}}>
+  <button class="ui button approve"  {{action "approve"}}>
     Approve
   </button>
 {{/if}}

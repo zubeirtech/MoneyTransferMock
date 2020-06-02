@@ -44,6 +44,7 @@ export default Route.extend({
     async afterModel(model) {
         if(localStorage.getItem("sender")) {
             const sender = {
+                id: 5,
                 firstName: localStorage.getItem("sender"),
                 lastName: "smith",
                 mobile: this.generateRandomNumber(),
@@ -51,6 +52,7 @@ export default Route.extend({
             }
 
             const receiver = {
+                id: 6,
                 firstName: localStorage.getItem("receiver"),
                 lastName: "johnson",
                 mobile: this.generateRandomNumber(),
