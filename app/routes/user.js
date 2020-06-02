@@ -11,24 +11,28 @@ export default Route.extend({
     model() {
         return [
             {
+                id: 1,
                 firstName: "John",
                 lastName: "Doe",
                 mobile: this.generateRandomNumber(),
                 email: "John.Doe@mail.com"
             },
             {
+                id: 2,
                 firstName: "Alex",
                 lastName: "Xela",
                 mobile: this.generateRandomNumber(),
                 email: "Alex.Xela@mail.com"
             },
             {
+                id: 3,
                 firstName: "Phil",
                 lastName: "Lihp",
                 mobile: this.generateRandomNumber(),
                 email: "Phil.Lihp@mail.com"
             },
              {
+                id: 4,
                 firstName: "Jemal",
                 lastName: "Lamej",
                 mobile: this.generateRandomNumber(),
