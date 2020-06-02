@@ -1,0 +1,40 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+{{!-- BREADCRUMB --}}
+{{#link-to "dashboard"}}
+  <a >Dashboard ></a>
+{{/link-to}}
+{{!-- BREADCRUMB --}}
+{{#link-to "dashboard"}}
+  <a >Remittance ></a>
+{{/link-to}}
+
+<br>
+<br>
+<br>
+
+<div class="ui grid">
+  <div class="eight wide">
+    <div class="ui form">
+      <div class="field">
+        <label for="">Sender: </label>
+        {{model.sender}}
+      </div>
+      <div class="field">
+        <label for="">Receiver</label>
+        {{model.receiver}}
+      </div>
+      <div class="field">
+        <label for="">Amount</label>
+        {{model.amount}}
+      </div>
+      <div class="field">
+        <label for="">Date of Creation</label>
+        {{model.date}}
+      </div>
+    </div>
+  </div>
+</div>

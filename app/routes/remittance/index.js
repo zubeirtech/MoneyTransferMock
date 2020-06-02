@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import {set } from '@ember/object';
 
 export default Route.extend({
     model() {
@@ -50,5 +51,18 @@ export default Route.extend({
             }
             model.pushObject(newRem);
         }
+
+        if (localStorage.getItem("approved")) {
+            const index = parseInt(localStorage.getItem("approvedIndex"));
+            const rem = model[index - 1];
+            set(rem, "status", "Done");
+        }
+
+        if(localStorage.getItem("deleted")) {
+            const index = parseInt(localStorage.getItem("deletedIndex"));
+            const rem = model[index - 1];
+            model.removeObject(rem);
+        }
+
     }
 });

@@ -1,8 +1,81 @@
-<br>
-<br>
-<br>
-<br>
-<br>  
-Sender:  {{model.sender}}
+{{!-- template-lint-disable no-inline-styles --}}
 
+<br>
+<br>
+<br>
+<br>
+
+<style>
+  .myform {
+    border-radius: 0px !important;
+    border: 1px solid #AEAEAE !important;
+    background-color: transparent !important;
+  }
+</style>
+
+{{!-- BREADCRUMB --}}
+{{#link-to "dashboard"}}
+  <a >Dashboard ></a>
+{{/link-to}}
+{{!-- BREADCRUMB --}}
+{{#link-to "dashboard"}}
+  <a >Remittance ></a>
+{{/link-to}}
+
+<br>
+<br>
+
+<div class="ui stackable grid">
+  <div class="eight wide column">
+    <div class="ui compact form">
+      <div class="compact field">
+        <label for="">Sender: </label>
+        {{input value=model.sender class="myform" keyUp=(action (mut editView) true)}}
+      </div>
+      <div class="field">
+        <label for="">Receiver</label>
+        {{input value=model.receiver class="myform" keyUp=(action (mut editView) true)}}
+      </div>
+      <div class="field">
+        <label for="">Amount</label>
+        {{input value=model.amount class="myform" keyUp=(action (mut editView) true)}}
+      </div>
+      <div class="field">
+        <label for="">Date of Creation</label>
+        {{input value=model.date type="date" class="myform" keyUp=(action (mut editView) true)}}
+      </div>
+      <div class="field">
+        <label for=""> <i class="info icon"></i> Rest of remittance data would be displayed in real version!</label>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+{{#if editView}} 
+  {{#if deleteView}}
+    <div class="ui compact red segment">
+      <h4 class="ui dividing header">
+        By deleting this remittance you are deleting sensitive data etc.
+      </h4>
+      <button class="ui green button" style="border-radius: 0px;" {{action (mut deleteView) false}}>
+        Cancel
+      </button>
+      <button class="ui inverted red button" style="border-radius: 0px" {{action "delete"}}>
+        <i class="trash icon"></i> Continue
+      </button>
+    </div>
+  {{else}}
+    <button class="ui inverted orange button" style="border-radius: 0px; font-family: 'Roboto', sans serif" {{action "edit"}}>
+      <i class="edit icon"></i> Edit
+    </button>
+    <button class="ui red button" style="border-radius: 0px;" {{action (mut deleteView) true}}>
+      <i class="trash icon"></i> Delete
+    </button>
+  {{/if}}
+{{else}}
+  <button class="ui blue button" style="border-radius: 0px;" {{action "approve"}}>
+    Approve
+  </button>
+{{/if}}
 {{outlet}}
