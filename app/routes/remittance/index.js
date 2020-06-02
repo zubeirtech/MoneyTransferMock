@@ -2,8 +2,7 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
     model() {
-        return [
-            {
+        return [{
                 id: 1,
                 sender: "John",
                 receiver: "Jill",
@@ -36,11 +35,11 @@ export default Route.extend({
                 date: new Date().toDateString(),
                 status: "Done"
             }
-        ]        
+        ]
     },
 
     afterModel(model) {
-        if(localStorage.getItem("sender")) {
+        if (localStorage.getItem("sender")) {
             const newRem = {
                 id: 5,
                 sender: localStorage.getItem("sender"),

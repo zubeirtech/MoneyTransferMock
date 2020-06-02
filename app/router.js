@@ -13,7 +13,9 @@ Router.map(function() {
       this.route('approve');
     });
   });
-  this.route('user');
+  this.route('user', function() {
+    this.route('new');
+  });
   this.route('branch');
   this.route('customer');
   this.route('settlement');

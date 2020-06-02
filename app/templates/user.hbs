@@ -1,1 +1,85 @@
+{{!-- template-lint-disable no-inline-styles --}}
+<style>
+  .main {
+    font-weight: 200 !important;
+    color: #001737!important;
+  }
+
+  #link: {
+    color: inherit !important;
+  }
+
+  #input {
+    border: 1px solid #AEAEAE;
+    width: 280px;
+  }
+
+  th {
+    font-weight: 600 !important;
+    color: #001737!important;
+  }
+
+</style>
+
+<br>
+<br>
+<br>
+{{!-- BREADCRUMB --}}
+{{#link-to "dashboard"}}
+  <a >Dashboard ></a>
+{{/link-to}}
+
+<h2 class="ui medium header main">
+  Remittance Management
+</h2>
+{{#link-to "remittance.new"}}
+  <button style="color: #001737; background-color: transparent; border: 0; cursor: pointer">
+    <i class="fas fa-plus" style="color: #2B80FF"></i> Add
+  </button>
+{{/link-to}}
+&nbsp;&nbsp;&nbsp;
+{{#link-to "remittance.new"}}
+  <button style="color: #001737; background-color: transparent; border: 0; cursor: pointer;">
+    <i class="fas fa-search" style="color: #2B80FF"></i> Trace
+  </button>
+{{/link-to}}
+<div class="ui divider" style="border: 1px solid #CDD6DC"></div>
+
+<div class="ui input" id="input">
+  {{input value=val placeholder="Search by name or mobile..." keyUp=(action "search" val)}}
+</div>
+<br>
+<br>
+
+<table class="ui very basic stackable table">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Mobile Number</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |rem|}}
+      <tr>
+        <td>
+          {{rem.firstName}}
+        </td>
+        <td>
+          {{rem.lastName}}
+        </td>
+        <td>
+          {{rem.mobile}}
+        </td>
+        <td>
+          {{rem.email}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+
 {{outlet}}

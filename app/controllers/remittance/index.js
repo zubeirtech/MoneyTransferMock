@@ -34,6 +34,18 @@ export default Controller.extend({
                         date: new Date().toISOString()
                     }
                 ] )
+                
+                if(localStorage.getItem("sender")) {
+                    const newRem = {
+                        id: 5,
+                        sender: localStorage.getItem("sender"),
+                        receiver: localStorage.getItem("receiver"),
+                        amount: "10 USD",
+                        date: new Date().toDateString(),
+                        status: "Done"
+                    }
+                    model.pushObject(newRem);
+                }
             }
         }
     }
