@@ -79,7 +79,7 @@
             <div class="default text">Sender</div>
             <i class="dropdown icon"></i>
             <div class="menu">
-              {{#each model as |rem|}}
+              {{#each model.remittances as |rem|}}
                 <div data-value={{rem.id}} class="item" role="button" {{action "selectSender" rem}}>
                   {{rem.sender}}
                 </div>
@@ -153,7 +153,7 @@
             <div class="default text">Receiver</div>
             <i class="dropdown icon"></i>
             <div class="menu">
-              {{#each model as |rem|}}
+              {{#each model.remittances as |rem|}}
                 <div data-value={{rem.id}} class="item" role="button" {{action "selectReceiver" rem}}>
                   {{rem.receiver}}
                 </div>
@@ -442,9 +442,17 @@
   <br>
   <br>
   <br>
-  <button class="ui primary button" style="border-radius: 0px; font-family: 'Roboto'">
-    Create Remittance
-  </button>
+  {{#if createUserView}}
+    <div class="ui raised compact blue segment" style="border-radius: 0px;">
+      <h4 class="ui dividing header main">The Sender and/or Receiver do not have a user account!</h4>
+      <button class="ui inverted blue button" {{action "finalCreate" "user"}} style="border-radius: 0px;">Create User + Remittance</button>
+      <button class="ui inverted red button" {{action (mut createUserView) false}} style="border-radius: 0px;">Cancel</button>
+    </div>
+  {{else}}
+    <button class="ui primary button" style="border-radius: 0px; font-family: 'Roboto'" {{action "create"}}>
+      Create Remittance
+    </button>
+  {{/if}}
 {{/if}}
 
 <br>

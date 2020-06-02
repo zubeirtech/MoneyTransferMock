@@ -8,7 +8,7 @@ export default Route.extend({
                 sender: "John",
                 receiver: "Jill",
                 amount: "5 USD",
-                date: new Date().toISOString(),
+                date: new Date().toDateString(),
                 status: "Approve"
             },
             {
@@ -16,7 +16,7 @@ export default Route.extend({
                 sender: "Phil",
                 receiver: "Pam",
                 amount: "7 USD",
-                date: new Date().toISOString(),
+                date: new Date().toDateString(),
                 status: "Approve"
 
             },
@@ -25,7 +25,7 @@ export default Route.extend({
                 sender: "Alex",
                 receiver: "Anna",
                 amount: "8 USD",
-                date: new Date().toISOString(),
+                date: new Date().toDateString(),
                 status: "Done"
             },
             {
@@ -33,9 +33,23 @@ export default Route.extend({
                 sender: "Jemal",
                 receiver: "Zubeir",
                 amount: "9 USD",
-                date: new Date().toISOString(),
+                date: new Date().toDateString(),
                 status: "Done"
             }
         ]        
+    },
+
+    afterModel(model) {
+        if(localStorage.getItem("sender")) {
+            const newRem = {
+                id: 5,
+                sender: localStorage.getItem("sender"),
+                receiver: localStorage.getItem("receiver"),
+                amount: "10 USD",
+                date: new Date().toDateString(),
+                status: "Done"
+            }
+            model.pushObject(newRem);
+        }
     }
 });
