@@ -17,7 +17,7 @@ export default Controller.extend({
             const newUser = JSON.stringify(user);
             localStorage.setItem("newUser", newUser);
             this.toastr.success("Successfully created user", "Great!")
-            window.location.href = "/user"
+            this.transitionToRoute("user");
         }
     }
 
