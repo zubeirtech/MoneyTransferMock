@@ -41,6 +41,11 @@
   function toggleSidebar() {
     $('.ui.sidebar').sidebar('toggle');
   }
+
+  function clear() {
+    localStorage.clear();
+    document.location.reload();
+  }
 </script>
 
 <div class="ui computer only padded grid">
@@ -90,6 +95,9 @@
     {{#link-to "remittance" class="item menu-items"}}
       <i class="fas fa-genderless fa-lg"></i> &nbsp; Remittance Management
     {{/link-to}}
+    <a class="item" role="button" {{action "clear"}}>
+      <i class="fas fa-genderless fa-lg"></i> &nbsp; Clear Localstorage
+    </a>
   </div>
   <div class="sixteen wide column" id="content">
     {{outlet}}
@@ -134,6 +142,9 @@
       {{#link-to "remittance" class="item menu-items"}}
         <i class="fas fa-genderless fa-lg"></i> &nbsp; Remittance Management
       {{/link-to}}
+      <a class="item" role="button" {{action "clear"}}>
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; Clear Localstorage
+      </a>
     </div>
   </div>
   <div class="sixteen wide column">
