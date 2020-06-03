@@ -1,1 +1,86 @@
+{{!-- template-lint-disable no-inline-styles --}}
+
+<br>
+<br>
+<br>
+<br>
+
+<style>
+  .myform {
+    border-radius: 0px !important;
+    border: 1px solid #AEAEAE !important;
+    background-color: transparent !important;
+  }
+
+  .main {
+    font-weight: 200 !important;
+    color: #001737!important;
+  }
+
+  button {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400!important;
+  }
+
+  .approve {
+    background-color: #2B80FF !important;
+    color: white!important;
+  }
+
+  .mt-regular {
+    background-color: #DDE4EB !important;
+  }
+
+
+  .mt-dark {
+    color: #001737 !important;
+  }
+  
+</style>
+
+{{!-- BREADCRUMB --}}
+{{#link-to "dashboard"}}
+  <a >Dashboard ></a>
+{{/link-to}}
+{{!-- BREADCRUMB --}}
+{{#link-to "user"}}
+  <a >User ></a>
+{{/link-to}}
+
+<h2 class="ui medium header main">
+  Add User
+</h2>
+
+<div class="ui stackable grid">
+  <div class="eight wide column">
+    <div class="ui compact form">
+      <div class="compact field">
+        <label for="">Firstname: </label>
+        {{input value=firstName class="myform" placeholder="Enter Firstname..."}}
+      </div>
+      <div class="field">
+        <label for="">Lastname</label>
+        {{input value=lastName class="myform" placeholder="Enter lastname..."}}
+      </div>
+      <div class="field">
+        <label for="">Mobile</label>
+        {{input value=mobile class="myform" placeholder="Enter mobile..."}}
+      </div>
+      <div class="field">
+        <label for="">Email</label>
+        {{input value=email type="text" class="myform" placeholder="Enter email..."}}
+      </div>
+      <div class="field">
+        <label for=""> <i class="info icon"></i> Rest of user data would be displayed in real version!</label>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<button class="ui blue button" style="background-color: #2B80FF;" {{action "save"}}>
+  <i class="far fa-save"></i> Save
+</button>
+
+
 {{outlet}}

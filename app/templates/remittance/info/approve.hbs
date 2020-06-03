@@ -12,6 +12,11 @@
     background-color: transparent !important;
   }
 
+  .main {
+    font-weight: 200 !important;
+    color: #001737!important;
+  }
+
   button {
     font-family: 'Roboto', sans-serif !important;
     font-weight: 400!important;
@@ -40,8 +45,9 @@
   <a >Remittance ></a>
 {{/link-to}}
 
-<br>
-<br>
+<h2 class="ui medium header main">
+  Approve Remittance
+</h2>
 
 {{#if editView}}
   <button class="ui mt-dark mt-regular button" {{action "refresh"}}>

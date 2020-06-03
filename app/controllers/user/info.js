@@ -12,7 +12,7 @@ export default Controller.extend({
     actions: {
         edit() {
             set(this, "editView", false);
-            this.toastr.success("Remittance edited", "Great!");
+            this.toastr.success("User edited", "Great!");
         },
 
         refresh() {
@@ -64,12 +64,21 @@ export default Controller.extend({
                     email: `${localStorage.getItem("receiver")}@mail.com`
                 }
     
-                users.pushObject(sender);
-                users.pushObject(receiver);
+                users.push(sender);
+                users.push(receiver);
             }
 
-            set(this, "model", users[this.model.id - 1])
-            
+            if(localStorage.getItem("newUser")) {
+                const newUser = JSON.parse(localStorage.getItem("newUser"));
+                users.push(newUser);
+            }
+
+            if(localStorage.getItem("sender")) {
+                set(this, "model", users[this.model.id - 1])
+            } else {
+                set(this, "model", users[users.length - 1])
+            }
+
         }
     }
 });

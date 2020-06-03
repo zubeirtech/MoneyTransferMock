@@ -30,6 +30,12 @@
   .mt-dark {
     color: #001737 !important;
   }
+
+  .main {
+    font-weight: 200 !important;
+    color: #001737!important;
+  }
+
   
 </style>
 
@@ -42,8 +48,9 @@
   <a >User ></a>
 {{/link-to}}
 
-<br>
-<br>
+<h2 class="ui medium header main">
+  User Info
+</h2>
 
 {{#if editView}}
   <button class="ui mt-dark mt-regular button" {{action "refresh"}}>
@@ -57,19 +64,19 @@
   <div class="eight wide column">
     <div class="ui compact form">
       <div class="compact field">
-        <label for="">Sender: </label>
+        <label for="">Firstname: </label>
         {{input value=model.firstName class="myform" keyUp=(action (mut editView) true)}}
       </div>
       <div class="field">
-        <label for="">Receiver</label>
+        <label for="">Lastname</label>
         {{input value=model.lastName class="myform" keyUp=(action (mut editView) true)}}
       </div>
       <div class="field">
-        <label for="">Amount</label>
+        <label for="">Mobile</label>
         {{input value=model.mobile class="myform" keyUp=(action (mut editView) true)}}
       </div>
       <div class="field">
-        <label for="">Date of Creation</label>
+        <label for="">Email</label>
         {{input value=model.email type="text" class="myform" keyUp=(action (mut editView) true)}}
       </div>
       <div class="field">

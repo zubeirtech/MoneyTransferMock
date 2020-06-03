@@ -41,7 +41,7 @@ export default Route.extend({
         ]
     },
 
-    async afterModel(model) {
+    afterModel(model) {
         if(localStorage.getItem("sender")) {
             const sender = {
                 id: 5,
@@ -61,6 +61,11 @@ export default Route.extend({
 
             model.pushObject(sender);
             model.pushObject(receiver);
+        }
+
+        if(localStorage.getItem("newUser")) {
+            const newUser = JSON.parse(localStorage.getItem("newUser"))
+            model.pushObject(newUser);
         }
     }
 });
