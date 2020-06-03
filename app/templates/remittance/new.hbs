@@ -34,6 +34,25 @@
     word-wrap: break-word !important;
   }
 
+  .mt-regular {
+    background-color: #DDE4EB !important;
+  }
+
+  .mt-dark {
+    color: #001737 !important;
+  }
+
+  button {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400!important;
+  }
+
+  .approve {
+    background-color: #2B80FF !important;
+    color: white!important;
+  }
+
+
 </style>
 
 <br>
@@ -443,13 +462,13 @@
   <br>
   <br>
   {{#if createUserView}}
-    <div class="ui raised compact blue segment" style="border-radius: 0px;">
+    <div class="ui raised compact blue segment">
       <h4 class="ui dividing header main">The Sender and/or Receiver do not have a user account!</h4>
-      <button class="ui inverted blue button" {{action "finalCreate" "user"}} style="border-radius: 0px;">Create User + Remittance</button>
-      <button class="ui inverted red button" {{action (mut createUserView) false}} style="border-radius: 0px;">Cancel</button>
+      <button class="ui approve button" {{action "finalCreate" "user"}} >Create User + Remittance</button>
+      <button class="ui red button" {{action (mut createUserView) false}}>Cancel</button>
     </div>
   {{else}}
-    <button class="ui primary button" style="border-radius: 0px; font-family: 'Roboto'" {{action "create"}}>
+    <button class="ui approve button" {{action "create"}}>
       Create Remittance
     </button>
   {{/if}}
