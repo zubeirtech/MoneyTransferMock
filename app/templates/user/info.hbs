@@ -121,6 +121,9 @@
         <th>Last Name</th>
         <th>Mobile Number</th>
         <th>Email</th>
+        <th>
+          Edit User
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -137,6 +140,11 @@
           </td>
           <td>
             {{rem.email}}
+          </td>
+          <td>
+            {{#link-to "user.info" rem}}
+              <i class="fas fa-user-edit"></i> 
+            {{/link-to}}
           </td>
         </tr>
       {{/each}}
