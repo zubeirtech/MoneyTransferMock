@@ -56,9 +56,18 @@
   <button class="ui mt-dark mt-regular button" {{action "refresh"}}>
     <i class="sync icon" style="color: #2B80FF;"></i> Remove changes
   </button>
+  <button class="ui mt-dark mt-regular button" {{action "edit"}}>
+    <i class="fas fa-pencil-alt" style="color: #2B80FF"></i> Edit
+  </button>
   <br>
   <br>
-{{/if}}
+{{else}}
+  <button class="ui disabled button">
+    <i class="fas fa-pencil-alt"></i> Edit
+  </button>
+  <br>
+  <br>
+{{/if}} 
 
 <div class="ui stackable grid">
   <div class="eight wide column">
@@ -70,6 +79,14 @@
       <div class="field">
         <label for="">Lastname</label>
         {{input value=model.lastName class="myform" keyUp=(action (mut editView) true)}}
+      </div>
+      <div class="field">
+        <label for="">Address</label>
+        {{input value=model.address class="myform" keyUp=(action (mut editView) true)}}
+      </div>
+      <div class="field">
+        <label for="">Social Security Number</label>
+        {{input value=model.socialSecurityNumber class="myform" keyUp=(action (mut editView) true)}}
       </div>
       <div class="field">
         <label for="">Mobile</label>
@@ -86,15 +103,90 @@
   </div>
 </div>
 <br>
-
-{{#if editView}}
-  <button class="ui mt-dark mt-regular button" {{action "edit"}}>
-    <i class="fas fa-pencil-alt" style="color: #2B80FF"></i> Edit
-  </button>
-{{else}}
-  <button class="ui disabled button">
-    <i class="fas fa-pencil-alt"></i> Edit
-  </button>
-{{/if}}
  
+<div class="ui stackable secondary pointing menu">
+  <a class="{{if this.receiverView "active" ""}} item"  style="color: #001737" role="button" {{action "setActive" "receiver"}}>
+    Receiver
+  </a>
+  <a class="{{if this.applicationsView "active" ""}} item" style="color: #001737" role="button" {{action "setActive" "applications"}}>
+    Applications
+  </a>
+</div>
+
+{{#if receiverView}}
+  <table class="ui selectable celled striped padded stackable table" style="border-radius: 0px;">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Mobile Number</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model.receivers as |rem|}}
+        <tr>
+          <td>
+            {{rem.firstName}}
+          </td>
+          <td>
+            {{rem.lastName}}
+          </td>
+          <td>
+            {{rem.mobile}}
+          </td>
+          <td>
+            {{rem.email}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{/if}}
+
+{{#if applicationsView}}
+  <table class="ui selectable celled striped stackable table" style="border-radius: 0px;">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Sender</th>
+        <th>Receiver</th>
+        <th>Amount</th>
+        <th>Date of Creation</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model.applications as |rem|}}
+        <tr>
+          <td>
+            {{#if (eq rem.status "Approve")}}
+              {{#ui-popup content="Approve remittance by sender"}}
+                {{#link-to "remittance.info.approve" rem class="ui blue label"}}
+                  Approve
+                {{/link-to}}
+              {{/ui-popup}}
+            {{else}}
+              {{#link-to "remittance.info" rem class="ui basic green label"}}
+                Done
+              {{/link-to}}
+            {{/if}}
+          </td>
+          <td>
+            {{rem.sender}}
+          </td>
+          <td>
+            {{rem.receiver}}
+          </td>
+          <td>
+            {{rem.amount}}
+          </td>
+          <td>
+            {{rem.date}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{/if}}
+
 {{outlet}}

@@ -9,7 +9,25 @@ export default Controller.extend({
         return Math.floor(100000000 + Math.random() * 900000000);
     },
 
+    items: ["receiver", "application"],
+
+    receiverView: true, 
+
+    setToInActiveBesides(active) {
+        if(active !== "receiver") {
+            set(this, `${active}View`, true);
+            set(this, "receiverView", false);
+        } else {
+            set(this, `${active}View`, true);
+            set(this, "applicationsView", false);
+        }
+    },
+
     actions: {
+        setActive(item) {
+            this.setToInActiveBesides(item);
+        },
+
         edit() {
             set(this, "editView", false);
             this.toastr.success("User edited", "Great!");
