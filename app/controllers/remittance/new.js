@@ -25,9 +25,37 @@ export default Controller.extend({
     items: ["sender", "receiver", "amount", "payment", "review"],
     
     final(user) {
+        const remittance = {
+            id: 5,
+            senderFirstName: this.senderFirstName,
+            senderMiddleName: this.senderMiddleName,
+            senderLastName: this.senderLastName,
+            customerType: this.customerType,
+            senderMobileNumber: this.senderMobileNumber,
+            senderTel: this.senderTel,
+            senderMother: this.senderMother,
+            relationship: this.relationship,
+            purpose: this.purpose,
+            comment: this.comment,
+            remittanceType: this.remittanceType,
+            mmtType: this.mmtType,
+            receiverMobile: this.receiverMobile,
+            receiverFullName: this.receiverFullName,
+            amount: this.amount,
+            currency: this.currency,
+            servicePercentage: this.servicePercentage,
+            serviceCharges: this.serviceCharges,
+            totalAmount: this.totalAmount,
+            currencyRate: this.currencyRate,
+            currToCurr: this.currToCurr,
+            receivingAmount: this.receivingAmount,
+            currency: this.currency,
+            paymentType: this.paymentType,
+            paymentAmount: this.paymentAmount
+        }
+        const str = JSON.stringify(remittance);
         this.toastr.success("Remittance has been successfully created", "Great!");
-        localStorage.setItem("sender", this.senderFirstName);
-        localStorage.setItem("receiver", this.receiverFullName);
+        localStorage.setItem("newRem", str);
         this.transitionToRoute("remittance");
     },
 

@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import {set } from '@ember/object';
+import {set} from '@ember/object';
 
 export default Route.extend({
     model() {
@@ -40,16 +40,9 @@ export default Route.extend({
     },
 
     afterModel(model) {
-        if (localStorage.getItem("sender")) {
-            const newRem = {
-                id: 5,
-                sender: localStorage.getItem("sender"),
-                receiver: localStorage.getItem("receiver"),
-                amount: "10 USD",
-                date: new Date().toDateString(),
-                status: "Done"
-            }
-            model.pushObject(newRem);
+        if (localStorage.getItem("newRem")) {
+            const user = JSON.parse(localStorage.getItem("newRem"));
+            model.push(user);
         }
 
         if (localStorage.getItem("approved")) {
@@ -63,6 +56,5 @@ export default Route.extend({
             const rem = model[index - 1];
             model.removeObject(rem);
         }
-
     }
 });
