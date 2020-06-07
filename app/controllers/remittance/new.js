@@ -51,7 +51,8 @@ export default Controller.extend({
             receivingAmount: this.receivingAmount,
             currency: this.currency,
             paymentType: this.paymentType,
-            paymentAmount: this.paymentAmount
+            paymentAmount: this.paymentAmount,
+            date: new Date().toDateString(),
         }
         const str = JSON.stringify(remittance);
         this.toastr.success("Remittance has been successfully created", "Great!");

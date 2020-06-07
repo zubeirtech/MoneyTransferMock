@@ -5,16 +5,16 @@ export default Route.extend({
     model() {
         return [{
                 id: 1,
-                sender: "John",
-                receiver: "Jill",
+                senderFirstName: "John",
+                receiverFullName: "Jill",
                 amount: "5 USD",
                 date: new Date().toDateString(),
                 status: "Approve"
             },
             {
                 id: 2,
-                sender: "Phil",
-                receiver: "Pam",
+                senderFirstName: "Phil",
+                receiverFullName: "Pam",
                 amount: "7 USD",
                 date: new Date().toDateString(),
                 status: "Approve"
@@ -22,16 +22,16 @@ export default Route.extend({
             },
             {
                 id: 3,
-                sender: "Alex",
-                receiver: "Anna",
+                senderFirstName: "Alex",
+                receiverFullName: "Anna",
                 amount: "8 USD",
                 date: new Date().toDateString(),
                 status: "Done"
             },
             {
                 id: 4,
-                sender: "Jemal",
-                receiver: "Zubeir",
+                senderFirstName: "Jemal",
+                receiverFullName: "Zubeir",
                 amount: "9 USD",
                 date: new Date().toDateString(),
                 status: "Done"
