@@ -34,6 +34,58 @@
   .mt-dark {
     color: #001737 !important;
   }
+
+  .main {
+    font-weight: 200 !important;
+    color: #001737!important;
+  }
+
+  #link: {
+    color: inherit !important;
+  }
+
+  #input keyUp=(action (mut editView) true) {
+    border: 1px solid #AEAEAE;
+    width: 280px;
+  }
+
+  th {
+    font-weight: 600 !important;
+    color: #001737!important;
+  }
+
+  label {
+    color: #001737 !important;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .myform {
+    border-radius: 0px !important;
+    border: 1px solid #AEAEAE !important;
+    background-color: transparent !important;
+  }
+
+  .field {
+    word-wrap: break-word !important;
+  }
+
+  .mt-regular {
+    background-color: #DDE4EB !important;
+  }
+
+  .mt-dark {
+    color: #001737 !important;
+  }
+
+  button {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400!important;
+  }
+
+  .approve {
+    background-color: #2B80FF !important;
+    color: white!important;
+  }
 </style>
 
 {{!-- BREADCRUMB --}}
@@ -57,32 +109,267 @@
   <br>
 {{/if}}
 
-<div class="ui stackable grid">
-  <div class="eight wide column">
-    <div class="ui compact form">
-      <div class="compact field">
-        <label for="">Sender: </label>
-        {{input value=model.sender class="myform" keyUp=(action (mut editView) true)}}
+<div class="ui stackable secondary pointing menu">
+  <a class="{{if this.senderView "active" ""}} item"  style="color: #001737" role="button" {{action "setActive" "sender"}}>
+    Sender
+  </a>
+  <a class="{{if this.receiverView "active" ""}} item" style="color: #001737" role="button" {{action "setActive" "receiver"}}>
+    Receiver
+  </a>
+  <a class="{{if this.amountView "active" ""}} item" style="color: #001737" role="button"  {{action "setActive" "amount"}}>
+    Amount
+  </a>
+  <a class="{{if this.paymentView "active" ""}} item" style="color: #001737" role="button" {{action "setActive" "payment"}}>
+    Payment
+  </a>
+  <a class="{{if this.reviewView "active" ""}} item" style="color: #001737" role="button"  {{action "setActive" "review"}}>
+    Review + Create
+  </a>
+</div>
+
+{{#if this.senderView}}
+  <div class="ui stackable grid">
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="field">
+          <label for="">Search for sender</label>
+          {{#ui-dropdown class="selection" selected="Bob" onChange=(action (mut rem))}}
+            <div class="default text">Sender</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              {{#each model.remittances as |rem|}}
+                <div data-value={{rem.id}} class="item" role="button" {{action "selectSender" rem}}>
+                  {{rem.sender}}
+                </div>
+              {{/each}}
+            </div>
+          {{/ui-dropdown}}
+        </div>
+        <div class="required field">
+          <label for="">Customer Type</label>
+        </div>
+        <div class="inline fields">
+          <div class="field">
+            {{ui-radio name="customerType" label="Individual" value="Individual" current=customerType onChange=(action (mut customerType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="customerType" label="Coorporate" value="Coorporate" current=customerType  onChange=(action (mut customerType))}}
+          </div>
+        </div> 
+        <div class=" required field">
+          <label for="">First Name</label>
+          {{input keyUp=(action (mut editView) true) value=senderFirstName placeholder="Enter first name..." class="myform"}}
+        </div>
+        <div class="field">
+          <label for="">Middle Name</label>
+          {{input keyUp=(action (mut editView) true) value=senderMiddleName placeholder="Enter middle name..." class="myform"}}
+        </div>
+        <div class=" required field">
+          <label for="">Last Name</label>
+          {{input keyUp=(action (mut editView) true) value=senderLastName placeholder="Enter last name..." class="myform"}}
+        </div>
+        <div class=" required field">
+          <label for="">Mobile Number</label>
+          {{input keyUp=(action (mut editView) true) value=senderMobileNumber placeholder="Enter mobile number..." class="myform"}}
+        </div>
+        <div class="field">
+          <label for="">Tel</label>
+          {{input keyUp=(action (mut editView) true) value=senderTel placeholder="Enter tel..." class="myform"}}
+        </div>
+        <div class="field">
+          <label for="">Mother Name</label>
+          {{input keyUp=(action (mut editView) true) value=senderMotherName placeholder="Enter mother name..." class="myform"}}
+        </div>
       </div>
-      <div class="field">
-        <label for="">Receiver</label>
-        {{input value=model.receiver class="myform" keyUp=(action (mut editView) true)}}
+    </div>
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="required field">
+          <label for="">Relationship</label>
+          {{input keyUp=(action (mut editView) true) value=relationship placeholder="Enter relationship..." class="myform"}}
+        </div>
+        <div class="required field">
+          <label for="">Purpose</label>
+          {{input keyUp=(action (mut editView) true) value=purpose placeholder="Enter purpose..." class="myform"}}
+        </div>
+        <div class="field">
+          <label for="">Comments</label>
+          {{textarea value=comment placeholder="Enter comment..." class="myform"}}
+        </div>
       </div>
-      <div class="field">
-        <label for="">Amount</label>
-        {{input value=model.amount class="myform" keyUp=(action (mut editView) true)}}
-      </div>
-      <div class="field">
-        <label for="">Date of Creation</label>
-        {{input value=model.date type="date" class="myform" keyUp=(action (mut editView) true)}}
-      </div>
-      <div class="field">
-        <label for=""> <i class="info icon"></i> Rest of remittance data would be displayed in real version!</label>
+    </div>
+  </div> 
+{{/if}}
+
+{{#if this.receiverView}}
+  <div class="ui stackable grid">
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="field">
+          <label for="">Search for receiver</label>
+          {{#ui-dropdown class="selection" selected="Bob" onChange=(action (mut rem))}}
+            <div class="default text">Receiver</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              {{#each model.remittances as |rem|}}
+                <div data-value={{rem.id}} class="item" role="button" {{action "selectReceiver" rem}}>
+                  {{rem.receiver}}
+                </div>
+              {{/each}}
+            </div>
+          {{/ui-dropdown}}
+        </div>
+        <div class="required field">
+          <label for="">Remittance Type</label>
+        </div>
+        <div class="inline fields">
+          <div class="field">
+            {{ui-radio name="remittanceType" label="Bank Transfer" value="Bank Transfer" current=remittanceType onChange=(action (mut remittanceType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="remittanceType" label="Cash Collection" value="Cash Collection" current=remittanceType onChange=(action (mut remittanceType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="remittanceType" label="Mobile Money" value="Mobile Money" current=remittanceType onChange=(action (mut remittanceType))}}
+          </div>
+        </div>
+        <div class="required field">
+          <label for="">MMT Types</label>
+        </div>
+        <div class="inline fields">
+          <div class="field">
+            <div class="ui radio checkbox" >
+              {{ui-radio name="mmtType" label="Somalia" value="Somalia" current=mmtType onChange=(action (mut mmtType))}}
+            </div>
+          </div>
+          <div class="field">
+            {{ui-radio name="mmtType" label="Mpesa Transfer" value="Mpesa Transfer" current=mmtType onChange=(action (mut mmtType))}}
+          </div>
+        </div>
+        <div class="required field">
+          <label for="">Mobile</label>
+          {{input keyUp=(action (mut editView) true) value=receiverMobile placeholder="Enter mobile number..." class="myform"}}
+        </div>
+        <div class="required field">
+          <label for="">Full Name</label>
+          {{input keyUp=(action (mut editView) true) value=receiverFullName placeholder="Enter full name..." class="myform" }}
+        </div>
       </div>
     </div>
   </div>
-</div>
+{{/if}}
+
+
+{{#if this.amountView}}
+  <div class="ui stackable grid">
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="required field">
+          <label for="">Amount</label>
+          {{input keyUp=(action (mut editView) true) value=amount type="number" placeholder="Enter amount..." class="myform" }}
+        </div>
+        <div class="required field">
+          <label for="">Currency</label>
+          {{#ui-dropdown class="selection" selected="Bob" onChange=(action (mut c))}}
+            <div class="default text">Currencies</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              {{#each currencies as |c|}}
+                <div data-value={{c.id}} class="item" role="button" {{action "setCurrency" c.value}}>
+                  {{c.value}}
+                </div>
+              {{/each}}
+            </div>
+          {{/ui-dropdown}}
+        </div>
+        <div class="required field">
+          <label for="">Service Percentage in %</label>
+          {{input keyUp=(action (mut editView) true) value=servicePercentage placeholder="Enter service percentage..." type="number" class="myform"}}
+        </div>
+        <div class="required field">
+          <label for="">Service Charges in {{this.currency}}</label>
+          {{input keyUp=(action (mut editView) true) value=serviceCharges placeholder="Enter service charges" type="number" class="myform"}}
+        </div>
+        <div class="required field">
+          <label for="">Total Amount in {{this.currency}}</label>
+          {{input keyUp=(action (mut editView) true) value=totalAmount placeholder="Enter total amount" type="number" class="myform"}}
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="required field">
+          <label for="">Currency to {{this.currency}} Rate</label>
+          {{input keyUp=(action (mut editView) true) value=currencyRate placeholder="Enter currency rate..." type="number" class="myform"}}
+        </div>
+        <div class="required field">
+          <label for="">Curr to Curr Rate</label>
+          {{input keyUp=(action (mut editView) true) value=currToCurr placeholder="Enter curr to curr" type="number" class="myform"}}
+        </div>
+        <div class="required field">
+          <label for="">Receiving Amount</label>
+          {{input keyUp=(action (mut editView) true) value=receivingAmount placeholder="Enter receiving amount" type="number" class="myform"}}
+        </div>
+        <div class="required field">
+          <label for="">Total Amount in {{this.currency}}</label>
+          {{#ui-dropdown class="selection" selected="Bob" onChange=(action (mut c))}}
+            <div class="default text">Currencies</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              {{#each currencies as |c|}}
+                <div data-value={{c.id}} class="item" role="button">
+                  {{c.value}}
+                </div>
+              {{/each}}
+            </div>
+          {{/ui-dropdown}}
+        </div>
+
+      </div> 
+    </div>
+  </div>
+{{/if}}
+
+
+{{#if paymentView}}
+  <div class="ui stackable grid">
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="required grouped fields">
+          <label for="fruit">Payment Types:</label>
+          <div class="field">
+            {{ui-radio name="paymentType" label="Cash" value="Cash" current=paymentType onChange=(action (mut paymentType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="paymentType" label="Cheque" value="Cheque" current=paymentType onChange=(action (mut paymentType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="paymentType" label="Email transfer" value="Email transfer" current=paymentType onChange=(action (mut paymentType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="paymentType" label="Wire" value="Wire" current=paymentType onChange=(action (mut paymentType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="paymentType" label="Deposit Account" value="Deposit Account" current=paymentType onChange=(action (mut paymentType))}}
+          </div>
+          <div class="field">
+            {{ui-radio name="paymentType" label="Card" value="Card" current=paymentType onChange=(action (mut paymentType))}}
+          </div>
+        </div>
+        <div class="required field">
+          <label for="">Amount</label>
+          {{input keyUp=(action (mut editView) true) value=paymentAmount placeholder="Enter payment amount..." class="myform" type="number"}}
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column"></div>
+  </div>
+{{/if}}
+
+
 <br>
+<br>
+
 
 {{#if editView}} 
   {{#if deleteView}}
