@@ -43,4 +43,22 @@
   Dashboard
 </h2>
 
+<div class=""></div>
+<div class="ui small stackable raised segment">
+  {{vertical-bar-chart data=tsData selectedSeedColor="rgb(51,51,255)"}}
+</div>
+<div class="ui stackable grid">
+  <div class="eight wide column">
+    <div class="ui small stackable raised segment">
+      {{pie-chart data=data maxRadius=1000 selectedSeedColor="rgb(102,0,255)"}}
+    </div>
+  </div>
+  <div class="eight wide column">
+    <div class="ui small stackable raised segment">
+      {{ember-chart type="line" data=ldata}}
+    </div>
+  </div>
+</div>
+
+
 {{outlet}}
