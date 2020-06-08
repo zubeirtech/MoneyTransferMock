@@ -57,7 +57,7 @@ export default Controller.extend({
         const str = JSON.stringify(remittance);
         this.toastr.success("Remittance has been successfully created", "Great!");
         localStorage.setItem("newRem", str);
-        this.transitionToRoute("remittance");
+        window.location.href = "/remittance"
     },
 
     setToInActiveBesides(active) {
@@ -65,6 +65,16 @@ export default Controller.extend({
         this.items.forEach(item => {
             if(item !== active) set(this, `${item}View`, false);
         });
+    },
+
+    addToLoalStorage(notification) {
+        if(localStorage.getItem("notifications")) {
+            const nots = JSON.parse(localStorage.getItem("notifications"));
+            nots.push(notification);
+            localStorage.setItem("notifications", JSON.stringify(nots));
+        } else {
+            localStorage.setItem("notifications", JSON.stringify([notification]))
+        }
     },
 
     actions: {
@@ -101,6 +111,13 @@ export default Controller.extend({
             } else {
                 this.toastr.warning('Please fill out sender and receiver');
             }
+
+            const notif = {
+                topic: "Remittance",
+                message: "Create Remittance"
+            }
+
+            this.addToLoalStorage(notif);
             
         }
     }

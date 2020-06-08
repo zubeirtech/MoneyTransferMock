@@ -11,6 +11,11 @@ export default Controller.extend({
             setTimeout(() => {
                 document.location.reload();
             }, 500);
+        },
+
+        clearNotification() {
+            localStorage.removeItem("notifications");
+            document.location.reload();
         }
     }
 

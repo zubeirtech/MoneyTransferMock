@@ -23,6 +23,16 @@ export default Controller.extend({
         }
     },
 
+    addToLoalStorage(notification) {
+        if(localStorage.getItem("notifications")) {
+            const nots = JSON.parse(localStorage.getItem("notifications"));
+            nots.push(notification);
+            localStorage.setItem("notifications", JSON.stringify(nots));
+        } else {
+            localStorage.setItem("notifications", JSON.stringify([notification]))
+        }
+    },
+
     actions: {
         setActive(item) {
             this.setToInActiveBesides(item);
@@ -31,6 +41,12 @@ export default Controller.extend({
         edit() {
             set(this, "editView", false);
             this.toastr.success("User edited", "Great!");
+
+            const notif = {
+                topic: "User",
+                message: "User edited"
+            }
+            
         },
 
         refresh() {

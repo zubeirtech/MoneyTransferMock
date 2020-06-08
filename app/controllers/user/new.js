@@ -4,6 +4,16 @@ import { inject as service } from '@ember/service';
 export default Controller.extend({
     toastr: service('toast'),
 
+    addToLoalStorage(notification) {
+        if(localStorage.getItem("notifications")) {
+            const nots = JSON.parse(localStorage.getItem("notifications"));
+            nots.push(notification);
+            localStorage.setItem("notifications", JSON.stringify(nots));
+        } else {
+            localStorage.setItem("notifications", JSON.stringify([notification]))
+        }
+    },
+
     actions: {
         save() {
             const user = {
@@ -19,7 +29,13 @@ export default Controller.extend({
             const newUser = JSON.stringify(user);
             localStorage.setItem("newUser", newUser);
             this.toastr.success("Successfully created user", "Great!")
-            this.transitionToRoute("user");
+            window.location.href = "/user"
+            const notif = {
+                topic: "User",
+                message: "Created new user"
+            }
+
+            this.addToLoalStorage(notif);
         }
     }
 

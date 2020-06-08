@@ -1,4 +1,4 @@
-{{!-- template-lint-disable no-inline-styles --}}
+{{!-- template-lint-disable no-inline-styles no-unused-block-params --}}
 <style>
   #content {
     padding-left: 280px;
@@ -54,13 +54,18 @@
       Money Transfer
     </a>
     <div class="right menu">
-      <div class="ui dropdown item">
+      <a class="item">
         <i class="far fa-bell"></i>
-        <div class="menu">
-          <a href="" class="item"> <i class="trash icon"></i> Remittance sended</a>
-          <a href="" class="item"> <i class="trash icon"></i> Created new user</a>
-        </div>
-      </div>
+        {{#ember-popover event="click" as |popover|}}
+          <a href="" role="button" {{action "clearNotification" }} style="cursor: pointer; ">Clear Notifications</a>
+          {{#each model.notifications as |not|}}
+            <div class="ui tiny floating info message">
+              <div class="header">{{not.topic}}</div>
+              {{not.message}}
+            </div>
+          {{/each}}
+        {{/ember-popover}}
+      </a>
       <a class="item">
         <i class="envelope outline icon"></i>
       </a>
@@ -84,11 +89,9 @@
     {{#link-to "dashboard" class="item menu-items"}}
       <i class="fas fa-genderless fa-lg"></i> &nbsp; Dashboard
     {{/link-to}}
-    {{#if model.client.admin}}
-      {{#link-to "user" class="item menu-items"}}
-        <i class="fas fa-genderless fa-lg"></i> &nbsp; User Management
-      {{/link-to}}
-    {{/if}}
+    {{#link-to "user" class="item menu-items"}}
+      <i class="fas fa-genderless fa-lg"></i> &nbsp; User Management
+    {{/link-to}}
     {{#link-to "remittance" class="item menu-items"}}
       <i class="fas fa-genderless fa-lg"></i> &nbsp; Remittance Management
     {{/link-to}}

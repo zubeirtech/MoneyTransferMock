@@ -4,11 +4,10 @@ import {set } from "@ember/object";
 
 export default Controller.extend({
     toastr: service("toast"),
-    
+
     senderView: true,
 
-    currencies: [
-        {
+    currencies: [{
             id: 1,
             value: "USD"
         },
@@ -27,8 +26,19 @@ export default Controller.extend({
     setToInActiveBesides(active) {
         set(this, `${active}View`, true);
         this.items.forEach(item => {
-            if(item !== active) set(this, `${item}View`, false);
+            if (item !== active) set(this, `${item}View`, false);
         });
+    },
+
+    addToLoalStorage(notification) {
+        if (localStorage.getItem("notifications")) {
+            const nots = JSON.parse(localStorage.getItem("notifications"));
+            console.log(nots);
+            nots.push(notification);
+            localStorage.setItem("notifications", JSON.stringify(nots));
+        } else {
+            localStorage.setItem("notifications", JSON.stringify([notification]))
+        }
     },
 
     actions: {
@@ -54,23 +64,41 @@ export default Controller.extend({
             }
             this.final();
         },
+
         edit() {
             set(this, "editView", false);
             this.toastr.success("Remittance edited", "Great!");
+            const notification = {
+                topic: "Remittance",
+                message: 'Remittance was edited'
+            }
+
+            this.addToLoalStorage(notification);
+
         },
 
         approve() {
             localStorage.setItem("approved", "true");
             localStorage.setItem("approvedIndex", this.model.id.toString());
-            this.transitionToRoute("remittance");
+            window.location.href = "/remittance"
             this.toastr.success("Remittance was approved", "Great!");
+            const notification = {
+                topic: "Remittance",
+                message: 'Remittance was approved'
+            }
+            this.addToLoalStorage(notification);
         },
 
         delete() {
             localStorage.setItem("deleted", "true");
             localStorage.setItem("deletedIndex", this.model.id.toString());
-            this.transitionToRoute("remittance");
+            window.location.href = "/remittance"
             this.toastr.success("Remittance was deleted", "Great!");
+            const notification = {
+                topic: "Remittance",
+                message: 'Remittance was deleted'
+            }
+            this.addToLoalStorage(notification);
         },
 
         refresh() {
