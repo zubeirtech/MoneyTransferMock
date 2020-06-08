@@ -131,11 +131,9 @@
       {{#link-to "dashboard" class="item menu-items"}}
         <i class="fas fa-genderless fa-lg"></i> &nbsp; Dashboard
       {{/link-to}}
-      {{#if model.client.admin}}
-        {{#link-to "user" class="item menu-items"}}
-          <i class="fas fa-genderless fa-lg"></i> &nbsp; User Management
-        {{/link-to}}
-      {{/if}}
+      {{#link-to "user" class="item menu-items"}}
+        <i class="fas fa-genderless fa-lg"></i> &nbsp; User Management
+      {{/link-to}}
       {{#link-to "remittance" class="item menu-items"}}
         <i class="fas fa-genderless fa-lg"></i> &nbsp; Remittance Management
       {{/link-to}}
