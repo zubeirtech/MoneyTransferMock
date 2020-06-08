@@ -122,9 +122,6 @@
   <a class="{{if this.paymentView "active" ""}} item" style="color: #001737" role="button" {{action "setActive" "payment"}}>
     Payment
   </a>
-  <a class="{{if this.reviewView "active" ""}} item" style="color: #001737" role="button"  {{action "setActive" "review"}}>
-    Review + Create
-  </a>
 </div>
 
 {{#if this.senderView}}
@@ -158,27 +155,27 @@
         </div> 
         <div class=" required field">
           <label for="">First Name</label>
-          {{input keyUp=(action (mut editView) true) value=senderFirstName placeholder="Enter first name..." class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.senderFirstName placeholder="Enter first name..." class="myform"}}
         </div>
         <div class="field">
           <label for="">Middle Name</label>
-          {{input keyUp=(action (mut editView) true) value=senderMiddleName placeholder="Enter middle name..." class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.senderMiddleName placeholder="Enter middle name..." class="myform"}}
         </div>
         <div class=" required field">
           <label for="">Last Name</label>
-          {{input keyUp=(action (mut editView) true) value=senderLastName placeholder="Enter last name..." class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.senderLastName placeholder="Enter last name..." class="myform"}}
         </div>
         <div class=" required field">
           <label for="">Mobile Number</label>
-          {{input keyUp=(action (mut editView) true) value=senderMobileNumber placeholder="Enter mobile number..." class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.senderMobileNumber placeholder="Enter mobile number..." class="myform"}}
         </div>
         <div class="field">
           <label for="">Tel</label>
-          {{input keyUp=(action (mut editView) true) value=senderTel placeholder="Enter tel..." class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.senderTel placeholder="Enter tel..." class="myform"}}
         </div>
         <div class="field">
           <label for="">Mother Name</label>
-          {{input keyUp=(action (mut editView) true) value=senderMotherName placeholder="Enter mother name..." class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.senderMotherName placeholder="Enter mother name..." class="myform"}}
         </div>
       </div>
     </div>
@@ -186,11 +183,11 @@
       <div class="ui form">
         <div class="required field">
           <label for="">Relationship</label>
-          {{input keyUp=(action (mut editView) true) value=relationship placeholder="Enter relationship..." class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.relationship placeholder="Enter relationship..." class="myform"}}
         </div>
         <div class="required field">
           <label for="">Purpose</label>
-          {{input keyUp=(action (mut editView) true) value=purpose placeholder="Enter purpose..." class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.purpose placeholder="Enter purpose..." class="myform"}}
         </div>
         <div class="field">
           <label for="">Comments</label>
@@ -248,11 +245,11 @@
         </div>
         <div class="required field">
           <label for="">Mobile</label>
-          {{input keyUp=(action (mut editView) true) value=receiverMobile placeholder="Enter mobile number..." class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.receiverMobile placeholder="Enter mobile number..." class="myform"}}
         </div>
         <div class="required field">
           <label for="">Full Name</label>
-          {{input keyUp=(action (mut editView) true) value=receiverFullName placeholder="Enter full name..." class="myform" }}
+          {{input keyUp=(action (mut editView) true) value=model.receiverFullName placeholder="Enter full name..." class="myform" }}
         </div>
       </div>
     </div>
@@ -266,7 +263,7 @@
       <div class="ui form">
         <div class="required field">
           <label for="">Amount</label>
-          {{input keyUp=(action (mut editView) true) value=amount type="number" placeholder="Enter amount..." class="myform" }}
+          {{input keyUp=(action (mut editView) true) value=model.amount type="number" placeholder="Enter amount..." class="myform" }}
         </div>
         <div class="required field">
           <label for="">Currency</label>
@@ -284,15 +281,15 @@
         </div>
         <div class="required field">
           <label for="">Service Percentage in %</label>
-          {{input keyUp=(action (mut editView) true) value=servicePercentage placeholder="Enter service percentage..." type="number" class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.servicePercentage placeholder="Enter service percentage..." type="number" class="myform"}}
         </div>
         <div class="required field">
           <label for="">Service Charges in {{this.currency}}</label>
-          {{input keyUp=(action (mut editView) true) value=serviceCharges placeholder="Enter service charges" type="number" class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.serviceCharges placeholder="Enter service charges" type="number" class="myform"}}
         </div>
         <div class="required field">
           <label for="">Total Amount in {{this.currency}}</label>
-          {{input keyUp=(action (mut editView) true) value=totalAmount placeholder="Enter total amount" type="number" class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.totalAmount placeholder="Enter total amount" type="number" class="myform"}}
         </div>
       </div>
     </div>
@@ -300,15 +297,15 @@
       <div class="ui form">
         <div class="required field">
           <label for="">Currency to {{this.currency}} Rate</label>
-          {{input keyUp=(action (mut editView) true) value=currencyRate placeholder="Enter currency rate..." type="number" class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.currencyRate placeholder="Enter currency rate..." type="number" class="myform"}}
         </div>
         <div class="required field">
           <label for="">Curr to Curr Rate</label>
-          {{input keyUp=(action (mut editView) true) value=currToCurr placeholder="Enter curr to curr" type="number" class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.currToCurr placeholder="Enter curr to curr" type="number" class="myform"}}
         </div>
         <div class="required field">
           <label for="">Receiving Amount</label>
-          {{input keyUp=(action (mut editView) true) value=receivingAmount placeholder="Enter receiving amount" type="number" class="myform"}}
+          {{input keyUp=(action (mut editView) true) value=model.receivingAmount placeholder="Enter receiving amount" type="number" class="myform"}}
         </div>
         <div class="required field">
           <label for="">Total Amount in {{this.currency}}</label>

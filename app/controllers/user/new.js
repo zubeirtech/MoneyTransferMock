@@ -10,6 +10,8 @@ export default Controller.extend({
                 id: 7,
                 firstName: this.firstName,
                 lastName: this.lastName,
+                address: this.address,
+                socialSecurityNumber: this.socialSecurityNumber,
                 mobile: this.mobile,
                 email: this.email
             }

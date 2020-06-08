@@ -24,6 +24,13 @@ export default Controller.extend({
 
     items: ["sender", "receiver", "amount", "payment", "review"],
 
+    setToInActiveBesides(active) {
+        set(this, `${active}View`, true);
+        this.items.forEach(item => {
+            if(item !== active) set(this, `${item}View`, false);
+        });
+    },
+
     actions: {
         setActive(item) {
             this.setToInActiveBesides(item);

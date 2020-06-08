@@ -56,22 +56,27 @@
     <div class="ui compact form">
       <div class="compact field">
         <label for="">Firstname: </label>
-        {{input value=firstName class="myform" placeholder="Enter Firstname..."}}
+        {{input value=firstName class="myform" keyUp=(action (mut editView) true) placeholder="Enter firstname..."}}
       </div>
       <div class="field">
         <label for="">Lastname</label>
-        {{input value=lastName class="myform" placeholder="Enter lastname..."}}
+        {{input value=lastName class="myform" keyUp=(action (mut editView) true) placeholder="Enter lastname..."}}
+      </div>
+      <div class="field">
+        <label for="">Address</label>
+        {{input value=address class="myform" keyUp=(action (mut editView) true) placeholder="Enter address"}}
+      </div>
+      <div class="field">
+        <label for="">Social Security Number</label>
+        {{input value=socialSecurityNumber class="myform" keyUp=(action (mut editView) true) placeholder="Enter social security number..."}}
       </div>
       <div class="field">
         <label for="">Mobile</label>
-        {{input value=mobile class="myform" placeholder="Enter mobile..."}}
+        {{input value=mobile class="myform" keyUp=(action (mut editView) true) placeholder="Enter mobile..."}}
       </div>
       <div class="field">
         <label for="">Email</label>
-        {{input value=email type="text" class="myform" placeholder="Enter email..."}}
-      </div>
-      <div class="field">
-        <label for=""> <i class="info icon"></i> Rest of user data would be displayed in real version!</label>
+        {{input value=email type="text" class="myform" keyUp=(action (mut editView) true) placeholder="Enter email..."}}
       </div>
     </div>
   </div>
