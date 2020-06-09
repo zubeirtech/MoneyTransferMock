@@ -18,6 +18,10 @@
     font-weight: 600 !important;
     color: #001737!important;
   }
+  #table {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 
 </style>
 
@@ -51,47 +55,51 @@
 <br>
 <br>
 
-<table class="ui selectable celled striped stackable table" style="border-radius: 0px;">
-  <thead>
-    <tr>
-      <th>Status</th>
-      <th>Sender</th>
-      <th>Receiver</th>
-      <th>Amount</th>
-      <th>Date of Creation</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model as |rem|}}
+<div id="table">
+  <table class="ui selectable celled striped unstackable table" style="border-radius: 0px;">
+    <thead>
       <tr>
-        <td>
-          {{#if (eq rem.status "Approve")}}
-            {{#ui-popup content="Approve remittance by sender"}}
-              {{#link-to "remittance.info.approve" rem class="ui blue label"}}
-                Approve
-              {{/link-to}}
-            {{/ui-popup}}
-          {{else}}
-            {{#link-to "remittance.info" rem class="ui basic green label"}}
-              Done
-            {{/link-to}}
-          {{/if}}
-        </td>
-        <td>
-          {{rem.senderFirstName}}
-        </td>
-        <td>
-          {{rem.receiverFullName}}
-        </td>
-        <td>
-          {{rem.amount}}
-        </td>
-        <td>
-          {{rem.date}}
-        </td>
+        <th>Status</th>
+        <th>Sender</th>
+        <th>Receiver</th>
+        <th>Amount</th>
+        <th>Date of Creation</th>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {{#each model as |rem|}}
+        <tr>
+          <td>
+            {{#if (eq rem.status "Approve")}}
+              {{#ui-popup content="Approve remittance by sender"}}
+                {{#link-to "remittance.info.approve" rem class="ui blue label"}}
+                  Approve
+                {{/link-to}}
+              {{/ui-popup}}
+            {{else}}
+              {{#link-to "remittance.info" rem class="ui basic green label"}}
+                Done
+              {{/link-to}}
+            {{/if}}
+          </td>
+          <td>
+            {{rem.senderFirstName}}
+          </td>
+          <td>
+            {{rem.receiverFullName}}
+          </td>
+          <td>
+            {{rem.amount}}
+          </td>
+          <td>
+            {{rem.date}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+</div>
+
 
 

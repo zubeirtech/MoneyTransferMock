@@ -19,6 +19,11 @@
     color: #001737!important;
   }
 
+  #table {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
 </style>
 
 <br>
@@ -51,42 +56,44 @@
 <br>
 <br>
 
-<table class="ui selectable celled striped padded stackable table" style="border-radius: 0px;">
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Mobile Number</th>
-      <th>Email</th>
-      <th>
-        Edit User
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model as |rem|}}
+<div id="table">
+  <table class="ui selectable celled striped unstackable padded table" style="border-radius: 0px;">
+    <thead>
       <tr>
-        <td>
-          {{rem.firstName}}
-        </td>
-        <td>
-          {{rem.lastName}}
-        </td>
-        <td>
-          {{rem.mobile}}
-        </td>
-        <td>
-          {{rem.email}}
-        </td>
-        <td>
-          {{#link-to "user.info" rem}}
-            <i class="fas fa-user-edit"></i> 
-          {{/link-to}}
-        </td>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Mobile Number</th>
+        <th>Email</th>
+        <th>
+          Edit User
+        </th>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {{#each model as |rem|}}
+        <tr>
+          <td>
+            {{rem.firstName}}
+          </td>
+          <td>
+            {{rem.lastName}}
+          </td>
+          <td>
+            {{rem.mobile}}
+          </td>
+          <td>
+            {{rem.email}}
+          </td>
+          <td>
+            {{#link-to "user.info" rem}}
+              <i class="fas fa-user-edit"></i> 
+            {{/link-to}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
 
 
 
