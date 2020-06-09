@@ -251,7 +251,7 @@ export default Controller.extend({
               
                   if (localStorage.getItem("newUser")) {
                     const newUser = JSON.parse(localStorage.getItem("newUser"));
-                    model.pushObject(newUser);
+                    this.model.pushObject(newUser);
                   }if (localStorage.getItem("sender")) {
                     const sender = {
                         firstName: localStorage.getItem("sender"),

@@ -42,7 +42,6 @@ export default Controller.extend({
             receiverMobile: this.receiverMobile,
             receiverFullName: this.receiverFullName,
             amount: this.amount,
-            currency: this.currency,
             servicePercentage: this.servicePercentage,
             serviceCharges: this.serviceCharges,
             totalAmount: this.totalAmount,

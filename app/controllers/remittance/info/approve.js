@@ -33,7 +33,6 @@ export default Controller.extend({
     addToLoalStorage(notification) {
         if (localStorage.getItem("notifications")) {
             const nots = JSON.parse(localStorage.getItem("notifications"));
-            console.log(nots);
             nots.push(notification);
             localStorage.setItem("notifications", JSON.stringify(nots));
         } else {

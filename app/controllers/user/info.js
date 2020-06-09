@@ -46,6 +46,8 @@ export default Controller.extend({
                 topic: "User",
                 message: "User edited"
             }
+
+            this.addToLoalStorage(notif);
             
         },
 
