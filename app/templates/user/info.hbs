@@ -36,6 +36,11 @@
     color: #001737!important;
   }
 
+  #table {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
   
 </style>
 
@@ -101,7 +106,7 @@
 </div>
 <br>
  
-<div class="ui stackable secondary pointing menu">
+<div class="ui secondary pointing menu">
   <a class="{{if this.receiverView "active" ""}} item"  style="color: #001737" role="button" {{action "setActive" "receiver"}}>
     Receiver
   </a>
@@ -110,88 +115,92 @@
   </a>
 </div>
 
-{{#if receiverView}}
-  <table class="ui selectable celled striped padded stackable table" style="border-radius: 0px;">
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Mobile Number</th>
-        <th>Email</th>
-        <th>
-          Edit User
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each model.receivers as |rem|}}
+<div id="table">
+  {{#if receiverView}}
+    <table class="ui selectable celled striped padded unstackable table" style="border-radius: 0px;">
+      <thead>
         <tr>
-          <td>
-            {{rem.firstName}}
-          </td>
-          <td>
-            {{rem.lastName}}
-          </td>
-          <td>
-            {{rem.mobile}}
-          </td>
-          <td>
-            {{rem.email}}
-          </td>
-          <td>
-            {{#link-to "user.info" rem}}
-              <i class="fas fa-user-edit"></i> 
-            {{/link-to}}
-          </td>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Mobile Number</th>
+          <th>Email</th>
+          <th>
+            Edit User
+          </th>
         </tr>
-      {{/each}}
-    </tbody>
-  </table>
-{{/if}}
-
-{{#if applicationsView}}
-  <table class="ui selectable celled striped stackable table" style="border-radius: 0px;">
-    <thead>
-      <tr>
-        <th>Status</th>
-        <th>Sender</th>
-        <th>Receiver</th>
-        <th>Amount</th>
-        <th>Date of Creation</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each model.applications as |rem|}}
-        <tr>
-          <td>
-            {{#if (eq rem.status "Approve")}}
-              {{#ui-popup content="Approve remittance by sender"}}
-                {{#link-to "remittance.info.approve" rem class="ui blue label"}}
-                  Approve
-                {{/link-to}}
-              {{/ui-popup}}
-            {{else}}
-              {{#link-to "remittance.info" rem class="ui basic green label"}}
-                Done
+      </thead>
+      <tbody>
+        {{#each model.receivers as |rem|}}
+          <tr>
+            <td>
+              {{rem.firstName}}
+            </td>
+            <td>
+              {{rem.lastName}}
+            </td>
+            <td>
+              {{rem.mobile}}
+            </td>
+            <td>
+              {{rem.email}}
+            </td>
+            <td>
+              {{#link-to "user.info" rem}}
+                <i class="fas fa-user-edit"></i> 
               {{/link-to}}
-            {{/if}}
-          </td>
-          <td>
-            {{rem.sender}}
-          </td>
-          <td>
-            {{rem.receiver}}
-          </td>
-          <td>
-            {{rem.amount}}
-          </td>
-          <td>
-            {{rem.date}}
-          </td>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+  
+  {{#if applicationsView}}
+    <table class="ui selectable celled striped unstackable table" style="border-radius: 0px;">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Sender</th>
+          <th>Receiver</th>
+          <th>Amount</th>
+          <th>Date of Creation</th>
         </tr>
-      {{/each}}
-    </tbody>
-  </table>
-{{/if}}
+      </thead>
+      <tbody>
+        {{#each model.applications as |rem|}}
+          <tr>
+            <td>
+              {{#if (eq rem.status "Approve")}}
+                {{#ui-popup content="Approve remittance by sender"}}
+                  {{#link-to "remittance.info.approve" rem class="ui blue label"}}
+                    Approve
+                  {{/link-to}}
+                {{/ui-popup}}
+              {{else}}
+                {{#link-to "remittance.info" rem class="ui basic green label"}}
+                  Done
+                {{/link-to}}
+              {{/if}}
+            </td>
+            <td>
+              {{rem.sender}}
+            </td>
+            <td>
+              {{rem.receiver}}
+            </td>
+            <td>
+              {{rem.amount}}
+            </td>
+            <td>
+              {{rem.date}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+  
+</div>
+
 
 {{outlet}}
