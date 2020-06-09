@@ -45,12 +45,18 @@
 
 <div class=""></div>
 <div class="ui small stackable raised segment">
-  {{vertical-bar-chart data=tsData selectedSeedColor="rgb(51,51,255)"}}
+  <h3 class="ui main header">
+    Currencies used in Money Transfer
+  </h3>
+  {{vertical-bar-chart data=tsData selectedSeedColor="rgb(80, 220, 100)"}}
 </div>
 <div class="ui stackable grid">
   <div class="eight wide column">
     <div class="ui small stackable raised segment">
-      {{pie-chart data=data maxRadius=1000 selectedSeedColor="rgb(102,0,255)"}}
+      <h3 class="ui main header">
+        Payment Methods used in Transfer
+      </h3>
+      {{pie-chart data=data maxRadius=1000 selectedSeedColor="rgb(255, 211, 0)"}}
     </div>
   </div>
   <div class="eight wide column">

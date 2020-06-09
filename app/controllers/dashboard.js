@@ -4,32 +4,32 @@ export default Controller.extend({
 
     data: [
         {
-            "label": "Cash & Cash Equivalent",
+            "label": "Cash",
             "value": 5403418.115000006,
             "type": "money"
         },
         {
-            "label": "Fixed Income",
+            "label": "Deposit Account",
             "value": 8231078.16438347,
             "type": "money"
         },
         {
-            "label": "Equity",
+            "label": "Cheque",
             "value": 12935781.176999997,
             "type": "money"
         },
         {
-            "label": "Hedge Fund",
+            "label": "Email transfer",
             "value": 1621341.246006786,
             "type": "money"
         },
         {
-            "label": "Private Equity",
+            "label": "Card",
             "value": 1574677.59,
             "type": "money"
         },
         {
-            "label": "Real Assets",
+            "label": "Wire",
             "value": 10475849.276172025,
             "type": "money"
         }
@@ -37,103 +37,103 @@ export default Controller.extend({
 
     tsData: [
         {
-            "label": "Label 1",
-            "group": "Group Two",
+            "label": "USD",
+            "group": "May",
             "value": 26
         },
         {
-            "label": "Label 2",
-            "group": "Group Two",
+            "label": "GBP",
+            "group": "May",
             "value": 18
         },
         {
-            "label": "Label 3",
-            "group": "Group Two",
+            "label": "EUR",
+            "group": "May",
             "value": 150
         },
         {
-            "label": "Label 4",
-            "group": "Group Two",
+            "label": "CNY",
+            "group": "May",
             "value": 160
         },
         {
-            "label": "Label 5",
-            "group": "Group Two",
+            "label": "INR",
+            "group": "May",
             "value": 200
         },
         {
-            "label": "Label 1",
-            "group": "Group Three",
+            "label": "USD",
+            "group": "March",
             "value": 14
         },
         {
-            "label": "Label 2",
-            "group": "Group Three",
+            "label": "GBP",
+            "group": "March",
             "value": 31
         },
         {
-            "label": "Label 3",
-            "group": "Group Three",
+            "label": "EUR",
+            "group": "March",
             "value": 44
         },
         {
-            "label": "Label 4",
-            "group": "Group Three",
+            "label": "CNY",
+            "group": "March",
             "value": 30
         },
         {
-            "label": "Label 5",
-            "group": "Group Three",
+            "label": "INR",
+            "group": "March",
             "value": 62
         },
         {
-            "label": "Label 1",
-            "group": "Group Four",
+            "label": "USD",
+            "group": "June",
             "value": 75
         },
         {
-            "label": "Label 2",
-            "group": "Group Four",
+            "label": "GBP",
+            "group": "June",
             "value": 114
         },
         {
-            "label": "Label 3",
-            "group": "Group Four",
+            "label": "EUR",
+            "group": "June",
             "value": 19
         },
         {
-            "label": "Label 4",
-            "group": "Group Four",
+            "label": "CNY",
+            "group": "June",
             "value": 129
         },
         {
-            "label": "Label 5",
-            "group": "Group Four",
+            "label": "INR",
+            "group": "June",
             "value": 52
         },
         {
-            "label": "Label 1",
-            "group": "Group Five",
+            "label": "USD",
+            "group": "April",
             "value": 200
         },
         {
-            "label": "Label 2",
-            "group": "Group Five",
+            "label": "GBP",
+            "group": "April",
             "value": 14
         },
         {
-            "label": "Label 3",
-            "group": "Group Five",
+            "label": "EUR",
+            "group": "April",
             "value": 31
         },
         {
-            "label": "Label 4",
-            "group": "Group Five",
+            "label": "CNY",
+            "group": "April",
             "value": 44
         },
         {
-            "label": "Label 5",
-            "group": "Group Five",
+            "label": "INR",
+            "group": "April",
             "value": 30
         }
     ],
@@ -155,10 +155,10 @@ export default Controller.extend({
         ],
         datasets: [
           {
-            label: "Weight-Progress",
+            label: "USD Exchange Rate",
             backgroundColor: "rgba(54,162,235,0.2)",
             borderColor: "rgba(54,162,235,0.8)",
-            data: [12, 19, 3, 5, 2, 3,6,8,3,11,3,22,19]
+            data: [0.88, 0.89, 0.88, 0.90, 0.91, 0.92, 0.93, 0.95, 0.94, 0.91, 0.88, 0.82, 0.89, 0.90, 0.88, 0.87, 0.86, 0.85, 0.85, 0.85, 0.85]
           }
         ]
     },
