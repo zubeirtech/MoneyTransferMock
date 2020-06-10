@@ -64,6 +64,7 @@
         <th>Receiver</th>
         <th>Amount</th>
         <th>Date of Creation</th>
+        <th>Details</th>
       </tr>
     </thead>
     <tbody>
@@ -77,9 +78,9 @@
                 {{/link-to}}
               {{/ui-popup}}
             {{else}}
-              {{#link-to "remittance.info" rem class="ui basic green label"}}
+              <div class="ui basic green label">
                 Done
-              {{/link-to}}
+              </div>
             {{/if}}
           </td>
           <td>
@@ -93,6 +94,11 @@
           </td>
           <td>
             {{rem.date}}
+          </td>
+          <td>
+            {{#link-to "remittance.info" rem }}
+              <i class="fas fa-info-circle"></i>
+            {{/link-to}}
           </td>
         </tr>
       {{/each}}

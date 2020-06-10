@@ -1,15 +1,49 @@
 import Route from '@ember/routing/route';
-import {set} from '@ember/object';
+import {set } from '@ember/object';
 
 export default Route.extend({
-    model() {
+    async model() {
+        const names = [
+            "Floppy_Disk_Puppy",
+            "Ice_cream_Plants",
+            "Cat_Robot",
+            "Fusion_Puppy",
+            "Hnads_Clock",
+            "Video_games_Boat",
+            "Ice_cream_cone_Prints",
+            "Shower_Laptop",
+            "Crab_Floppy_Disk",
+            "Sink_Soda"
+        ]
+
         return [{
                 id: 1,
                 senderFirstName: "John",
                 receiverFullName: "Jill",
                 amount: "5 USD",
                 date: new Date().toDateString(),
-                status: "Approve"
+                status: "Approve",
+                senderMiddleName: "",
+                senderLastName: names[0],
+                customerType: "Individual",
+                senderMobileNumber: "12345678",
+                senderTel: "",
+                senderMother: names[1],
+                relationship: "not related",
+                purpose: "Invoice",
+                comment: "No comment",
+                remittanceType: "Cash Collection",
+                mmtType: "Mpesa Transfer",
+                receiverMobile: "12345476675",
+                servicePercentage: "4",
+                serviceCharges: "6",
+                totalAmount: "7 USD",
+                currencyRate: "0.91",
+                currToCurr: "0.99",
+                receivingAmount: "6.20 USD",
+                currency: "USD",
+                paymentType: "Email Transfer",
+                paymentAmount: "4",
             },
             {
                 id: 2,
@@ -17,7 +51,28 @@ export default Route.extend({
                 receiverFullName: "Pam",
                 amount: "7 USD",
                 date: new Date().toDateString(),
-                status: "Approve"
+                status: "Approve",
+                senderMiddleName: "",
+                senderLastName: names[2],
+                customerType: "Individual",
+                senderMobileNumber: "12345678",
+                senderTel: "",
+                senderMother: names[3],
+                relationship: "not related",
+                purpose: "Invoice",
+                comment: "No comment",
+                remittanceType: "Cash Collection",
+                mmtType: "Mpesa Transfer",
+                receiverMobile: "12345476675",
+                servicePercentage: "4",
+                serviceCharges: "6",
+                totalAmount: "7 USD",
+                currencyRate: "0.91",
+                currToCurr: "0.99",
+                receivingAmount: "6.20 USD",
+                currency: "USD",
+                paymentType: "Email Transfer",
+                paymentAmount: "4",
 
             },
             {
@@ -26,7 +81,28 @@ export default Route.extend({
                 receiverFullName: "Anna",
                 amount: "8 USD",
                 date: new Date().toDateString(),
-                status: "Done"
+                status: "Done",
+                senderMiddleName: "",
+                senderLastName: names[5],
+                customerType: "Individual",
+                senderMobileNumber: "12345678",
+                senderTel: "",
+                senderMother: names[6],
+                relationship: "not related",
+                purpose: "Invoice",
+                comment: "No comment",
+                remittanceType: "Cash Collection",
+                mmtType: "Mpesa Transfer",
+                receiverMobile: "12345476675",
+                servicePercentage: "4",
+                serviceCharges: "6",
+                totalAmount: "7 USD",
+                currencyRate: "0.91",
+                currToCurr: "0.99",
+                receivingAmount: "6.20 USD",
+                currency: "USD",
+                paymentType: "Email Transfer",
+                paymentAmount: "4",
             },
             {
                 id: 4,
@@ -34,7 +110,28 @@ export default Route.extend({
                 receiverFullName: "Zubeir",
                 amount: "9 USD",
                 date: new Date().toDateString(),
-                status: "Done"
+                status: "Done",
+                senderMiddleName: "",
+                senderLastName: names[7],
+                customerType: "Individual",
+                senderMobileNumber: "12345678",
+                senderTel: "",
+                senderMother: names[8],
+                relationship: "not related",
+                purpose: "Invoice",
+                comment: "No comment",
+                remittanceType: "Cash Collection",
+                mmtType: "Mpesa Transfer",
+                receiverMobile: "12345476675",
+                servicePercentage: "4",
+                serviceCharges: "6",
+                totalAmount: "7 USD",
+                currencyRate: "0.91",
+                currToCurr: "0.99",
+                receivingAmount: "6.20 USD",
+                currency: "USD",
+                paymentType: "Email Transfer",
+                paymentAmount: "4",
             }
         ]
     },
@@ -51,7 +148,7 @@ export default Route.extend({
             set(rem, "status", "Done");
         }
 
-        if(localStorage.getItem("deleted")) {
+        if (localStorage.getItem("deleted")) {
             const index = parseInt(localStorage.getItem("deletedIndex"));
             const rem = model[index - 1];
             model.removeObject(rem);

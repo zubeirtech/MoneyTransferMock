@@ -51,6 +51,7 @@ export default Controller.extend({
             currency: this.currency,
             paymentType: this.paymentType,
             paymentAmount: this.paymentAmount,
+            status: "Done",
             date: new Date().toDateString(),
         }
         const str = JSON.stringify(remittance);
