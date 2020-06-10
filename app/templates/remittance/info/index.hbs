@@ -1,29 +1,177 @@
-{{!-- template-lint-disable no-inline-styles --}}
-<br>
-<br>
-<br>
+{{! template-lint-disable no-inline-styles table-groups}}
+<br >
+<br >
+<br >
 
 <style>
   .main {
     font-weight: 200 !important;
     color: #001737!important;
   }
+
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .invoice-box {
+        max-width: 800px;
+        margin: auto;
+        padding: 30px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
+    }
+    
+    .invoice-box table {
+        width: 100%;
+        line-height: inherit;
+        text-align: left;
+    }
+    
+    .invoice-box table td {
+        padding: 5px;
+        vertical-align: top;
+    }
+    
+    .invoice-box table tr td:nth-child(2) {
+        text-align: right;
+    }
+    
+    .invoice-box table tr.top table td {
+        padding-bottom: 20px;
+    }
+    
+    .invoice-box table tr.top table td.title {
+        font-size: 45px;
+        line-height: 45px;
+        color: #333;
+    }
+    
+    .invoice-box table tr.information table td {
+        padding-bottom: 40px;
+    }
+    
+    .invoice-box table tr.heading td {
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        font-weight: bold;
+    }
+    
+    .invoice-box table tr.details td {
+        padding-bottom: 20px;
+    }
+    
+    .invoice-box table tr.item td{
+        border-bottom: 1px solid #eee;
+    }
+    
+    .invoice-box table tr.item.last td {
+        border-bottom: none;
+    }
+    
+    .invoice-box table tr.total td:nth-child(2) {
+        border-top: 2px solid #eee;
+        font-weight: bold;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .invoice-box table tr.top table td {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        
+        .invoice-box table tr.information table td {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+    }
+    
+    /** RTL **/
+    .rtl {
+        direction: rtl;
+        font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    }
+    
+    .rtl table {
+        text-align: right;
+    }
+    
+    .rtl table tr td:nth-child(2) {
+        text-align: left;
+    }
 </style>
 
-{{!-- BREADCRUMB --}}
+<script>
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+{{! BREADCRUMB }}
 {{#link-to "dashboard"}}
-  <a >Dashboard ></a>
+  <a>
+    Dashboard >
+  </a>
 {{/link-to}}
-{{!-- BREADCRUMB --}}
+{{! BREADCRUMB }}
 {{#link-to "remittance"}}
-  <a >Remittance ></a>
+  <a>
+    Remittance >
+  </a>
 {{/link-to}}
 
 <h2 class="ui medium header main">
   Remittance Info
 </h2>
-<button style="color: #001737; background-color: transparent; border: 0; cursor: pointer">
-  <i class="fas fa-print" style="color: #2B80FF"></i> Print
+<button
+  style="color: #001737; background-color: transparent; border: 0; cursor: pointer"
+  {{action "openModal"}}
+>
+  <i class="fas fa-print" style="color: #2B80FF"></i>
+  Print
 </button>
 &nbsp;&nbsp;&nbsp;
 <div class="ui divider" style="border: 1px solid #CDD6DC"></div>
@@ -33,72 +181,104 @@
   <div class="eight wide column">
     <div class="ui raised segment">
       <div class="ui form">
-        <h4 class="ui dividing header" style="color: #001737    ">Sender</h4>
+        <h4 class="ui dividing header" style="color: #001737">
+          Sender
+        </h4>
         <div class="three fields">
           <div class="field">
-            <label for="">First Name</label>
-            {{model.senderFirstName}}
+            <label for="">
+              First Name
+            </label>
+            {{model.rem.senderFirstName}}
           </div>
           <div class="field">
-            <label for="">Middle Name</label>
-            {{model.senderMiddleName}}
+            <label for="">
+              Middle Name
+            </label>
+            {{model.rem.senderMiddleName}}
           </div>
           <div class="field">
-            <label for="">Last Name</label>
-            {{model.senderLastName}}
+            <label for="">
+              Last Name
+            </label>
+            {{model.rem.senderLastName}}
           </div>
         </div>
         <div class="three fields">
           <div class="field">
-            <label for="">Customer Type</label>
-            {{model.customerType}}
+            <label for="">
+              Customer Type
+            </label>
+            {{model.rem.customerType}}
           </div>
           <div class="field">
-            <label for="">Mobile</label>
-            {{model.senderMobileNumber}}
+            <label for="">
+              Mobile
+            </label>
+            {{model.rem.senderMobileNumber}}
           </div>
           <div class="field">
-            <label for="">Tel</label>
-            {{model.senderTel}}
+            <label for="">
+              Tel
+            </label>
+            {{model.rem.senderTel}}
           </div>
         </div>
         <div class="three fields">
           <div class="field">
-            <label for="">Mother</label>
-            {{model.senderMotherName}}
+            <label for="">
+              Mother
+            </label>
+            {{model.rem.senderMotherName}}
           </div>
           <div class="field">
-            <label for="">Relationship</label>
-            {{model.relationship}}
+            <label for="">
+              Relationship
+            </label>
+            {{model.rem.relationship}}
           </div>
           <div class="field">
-            <label for="">Purpose</label>
-            {{model.purpose}}
+            <label for="">
+              Purpose
+            </label>
+            {{model.rem.purpose}}
           </div>
         </div>
         <div class="field">
-          <label for="">Comment</label>
-          {{model.comment}}
+          <label for="">
+            Comment
+          </label>
+          {{model.rem.comment}}
         </div>
-        <h4 class="ui dividing header" style="color: #001737    ">Receiver</h4>
+        <h4 class="ui dividing header" style="color: #001737">
+          Receiver
+        </h4>
         <div class="two fields">
           <div class="field">
-            <label for="">Remittance Type</label>
-            {{model.remittanceType}}
+            <label for="">
+              Remittance Type
+            </label>
+            {{model.rem.remittanceType}}
           </div>
           <div class="field">
-            <label for="">MMT Types</label>
-            {{model.mmtType}}
+            <label for="">
+              MMT Types
+            </label>
+            {{model.rem.mmtType}}
           </div>
         </div>
         <div class="two fields">
           <div class="field">
-            <label for="">Mobile</label>
-            {{model.receiverMobile}}
+            <label for="">
+              Mobile
+            </label>
+            {{model.rem.receiverMobile}}
           </div>
           <div class="field">
-            <label for="">Full Name</label>
-            {{model.receiverFullName}}
+            <label for="">
+              Full Name
+            </label>
+            {{model.rem.receiverFullName}}
           </div>
         </div>
       </div>
@@ -107,57 +287,217 @@
   <div class="eight wide column">
     <div class="ui raised segment">
       <div class="ui form">
-        <h4 class="ui dividing header" style="color: #001737    ">Amount</h4>
+        <h4 class="ui dividing header" style="color: #001737">
+          Amount
+        </h4>
         <div class="three fields">
           <div class="field">
-            <label for="">Amount</label>
-            {{model.amount}}
+            <label for="">
+              Amount
+            </label>
+            {{model.rem.amount}}
           </div>
           <div class="field">
-            <label for="">Currency</label>
-            {{model.currency}}
+            <label for="">
+              Currency
+            </label>
+            {{model.rem.currency}}
           </div>
           <div class="field">
-            <label for="">Service Percentage</label>
-            {{model.servicePercentage}}
+            <label for="">
+              Service Percentage
+            </label>
+            {{model.rem.servicePercentage}}
           </div>
         </div>
         <div class="three fields">
           <div class="field">
-            <label for="">Service Charges</label>
-            {{model.serviceCharges}}
+            <label for="">
+              Service Charges
+            </label>
+            {{model.rem.serviceCharges}}
           </div>
           <div class="field">
-            <label for="">Total Amount</label>
-            {{model.totalAmount}}
+            <label for="">
+              Total Amount
+            </label>
+            {{model.rem.totalAmount}}
           </div>
           <div class="field">
-            <label for="">Currency to Rate</label>
-            {{model.currencyRate}}
+            <label for="">
+              Currency to Rate
+            </label>
+            {{model.rem.currencyRate}}
           </div>
         </div>
         <div class="three fields">
           <div class="field">
-            <label for="">Curr to Curr</label>
-            {{model.currToCurr}}
+            <label for="">
+              Curr to Curr
+            </label>
+            {{model.rem.currToCurr}}
           </div>
           <div class="field">
-            <label for="">Receiving Amount</label>
-            {{model.receivingAmount}}
+            <label for="">
+              Receiving Amount
+            </label>
+            {{model.rem.receivingAmount}}
           </div>
           <div class="field">
-            <label for="">Total Amount in {{model.currency}}</label>
-            {{model.currency}}
+            <label for="">
+              Total Amount in {{model.rem.currency}}
+            </label>
+            {{model.rem.currency}}
           </div>
         </div>
-        <h4 class="ui dividing header" style="color: #001737    ">Payment</h4>
+        <h4 class="ui dividing header" style="color: #001737">
+          Payment
+        </h4>
         <div class="field">
-          <label for="">Payment Type</label>
-          {{model.paymentType}}
+          <label for="">
+            Payment Type
+          </label>
+          {{model.rem.paymentType}}
         </div>
         <div class="field">
-          <label for="">Total Amount</label>
-          {{model.paymentAmount}}
+          <label for="">
+            Total Amount
+          </label>
+          {{model.rem.paymentAmount}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui container">
+  <div id="myModal" class="modal">
+    {{! <!-- Modal content --> }}
+    <div class="ui container">
+      <div class="modal-content">
+        <span class="close" role="button" {{action "closeModal"}}>
+          &times;
+        </span>
+        <h3 class="ui dividing header">
+          Remittance Receipt
+        </h3>
+
+        <div class="invoice-box">
+          <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+              <td colspan="2">
+                <table>
+                  <tr>
+                    <td class="title">
+                      <h1 class="ui header">Money transfer</h1>
+                    </td>
+
+                    <td>
+                      Invoice #: 1233
+                      <br >
+                      Created: January 1, 2015
+                      <br >
+                      Due: February 1, 2015
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr class="information">
+              <td colspan="2">
+                <table>
+                  <tr>
+                    <td>
+                      <b>Sender: </b>
+                      <br>
+                      {{model.rem.senderFirstName}}
+                      <br >
+                      {{model.rem.senderLastName}}
+                      <br >
+                      {{model.rem.senderMobileNumber}}
+                    </td>
+
+                    <td>
+                      Acme Corp.
+                      <br >
+                      John Doe
+                      <br >
+                      john@example.com
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr class="heading">
+              <td>
+                Payment Method
+              </td>
+
+              <td>
+                Check #
+              </td>
+            </tr>
+
+            <tr class="details">
+              <td>
+                Check
+              </td>
+
+              <td>
+                1000
+              </td>
+            </tr>
+
+            <tr class="heading">
+              <td>
+                Item
+              </td>
+
+              <td>
+                Price
+              </td>
+            </tr>
+
+            <tr class="item">
+              <td>
+                Website design
+              </td>
+
+              <td>
+                $300.00
+              </td>
+            </tr>
+
+            <tr class="item">
+              <td>
+                Hosting (3 months)
+              </td>
+
+              <td>
+                $75.00
+              </td>
+            </tr>
+
+            <tr class="item last">
+              <td>
+                Domain name (1 year)
+              </td>
+
+              <td>
+                $10.00
+              </td>
+            </tr>
+
+            <tr class="total">
+              <td></td>
+
+              <td>
+                Total: $385.00
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
