@@ -166,16 +166,20 @@
 <h2 class="ui medium header main">
   Remittance Info
 </h2>
-<button
-  style="color: #001737; background-color: transparent; border: 0; cursor: pointer"
-  {{action "openModal"}}
->
-  <i class="fas fa-print" style="color: #2B80FF"></i>
-  Print
-</button>
-&nbsp;&nbsp;&nbsp;
-<div class="ui divider" style="border: 1px solid #CDD6DC"></div>
-<br>
+
+<div class="ui computer only grid">
+  <div class="sixteen wide column">
+    <button
+      style="color: #001737; background-color: transparent; border: 0; cursor: pointer"
+      {{action "openModal"}}
+    >
+      <i class="fas fa-print" style="color: #2B80FF"></i>
+      Print
+    </button>
+    &nbsp;&nbsp;&nbsp;
+    <div class="ui divider" style="border: 1px solid #CDD6DC"></div>
+  </div>
+</div>
 
 <div class="ui stackable grid">
   <div class="eight wide column">
@@ -395,9 +399,9 @@
                     <td>
                       Invoice #: 1233
                       <br >
-                      Created: January 1, 2015
+                      Created: {{model.rem.date}}
                       <br >
-                      Due: February 1, 2015
+                      <b>Status: {{model.rem.status}}</b>
                     </td>
                   </tr>
                 </table>
@@ -419,11 +423,11 @@
                     </td>
 
                     <td>
-                      Acme Corp.
+                      <b>Receiver:</b>
+                      <br>
+                      {{model.rem.receiverFullName}}
                       <br >
-                      John Doe
-                      <br >
-                      john@example.com
+                      {{model.rem.receiverMobile}}
                     </td>
                   </tr>
                 </table>
@@ -436,68 +440,60 @@
               </td>
 
               <td>
-                Check #
+                {{model.rem.paymentType}} #
               </td>
             </tr>
 
             <tr class="details">
               <td>
-                Check
+                {{model.rem.paymentType}}
               </td>
 
               <td>
-                1000
-              </td>
-            </tr>
-
-            <tr class="heading">
-              <td>
-                Item
-              </td>
-
-              <td>
-                Price
-              </td>
-            </tr>
-
-            <tr class="item">
-              <td>
-                Website design
-              </td>
-
-              <td>
-                $300.00
-              </td>
-            </tr>
-
-            <tr class="item">
-              <td>
-                Hosting (3 months)
-              </td>
-
-              <td>
-                $75.00
-              </td>
-            </tr>
-
-            <tr class="item last">
-              <td>
-                Domain name (1 year)
-              </td>
-
-              <td>
-                $10.00
-              </td>
-            </tr>
-
-            <tr class="total">
-              <td></td>
-
-              <td>
-                Total: $385.00
+                {{model.rem.amount}}
               </td>
             </tr>
           </table>
+          <table class="ui small very compact fluid celled table">
+            <thead>
+              <tr>
+                <th>RID</th>
+                <th>Verification Code</th>
+                <th>Receiver Name</th>
+                <th>Receiver Mobile</th>
+                <th>City</th>
+                <th>P Amount</th>
+                <th>S Amount</th>
+                <th>Fee</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Name">{{model.rem.id}}</td>
+                <td data-label="Age">HQ-9682</td>
+                <td data-label="Job">{{model.rem.receiverFullName}}</td>
+                <td data-label="Job">{{model.rem.receiverMobile}}</td>
+                <td data-label="Job">Hawaasa, Ethopia</td>
+                <td data-label="Job">{{model.rem.paymentAmount}}.00 USD</td>
+                <td data-label="Job">{{model.rem.serviceCharges}}.00 USD</td>
+                <td data-label="Job"><b>39.00 USD</b></td>
+                <td data-label="Job">{{model.rem.totalAmount}}</td>
+              </tr>
+              <tr>
+                <td data-label="Job"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>Total</b></td>
+                <td></td>
+                <td><b>{{model.rem.totalAmount}}</b></td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 class="ui small header">THANK YOU FOR USING MONEY TRANSFER</h2>
         </div>
       </div>
     </div>
