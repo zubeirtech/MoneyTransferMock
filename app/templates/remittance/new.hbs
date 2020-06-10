@@ -330,130 +330,134 @@
 {{#if reviewView}}
   <div class="ui stackable grid">
     <div class="eight wide column">
-      <div class="ui form">
-        <h4 class="ui dividing header" style="color: #001737    ">Sender</h4>
-        <div class="three fields">
-          <div class="field">
-            <label for="">First Name</label>
-            {{this.senderFirstName}}
+      <div class="ui raised segment">
+        <div class="ui form">
+          <h4 class="ui dividing header" style="color: #001737    ">Sender</h4>
+          <div class="three fields">
+            <div class="field">
+              <label for="">First Name</label>
+              {{this.senderFirstName}}
+            </div>
+            <div class="field">
+              <label for="">Middle Name</label>
+              {{this.senderMiddleName}}
+            </div>
+            <div class="field">
+              <label for="">Last Name</label>
+              {{this.senderLastName}}
+            </div>
+          </div>
+          <div class="three fields">
+            <div class="field">
+              <label for="">Customer Type</label>
+              {{this.customerType}}
+            </div>
+            <div class="field">
+              <label for="">Mobile</label>
+              {{this.senderMobileNumber}}
+            </div>
+            <div class="field">
+              <label for="">Tel</label>
+              {{this.senderTel}}
+            </div>
+          </div>
+          <div class="three fields">
+            <div class="field">
+              <label for="">Mother</label>
+              {{this.senderMotherName}}
+            </div>
+            <div class="field">
+              <label for="">Relationship</label>
+              {{this.relationship}}
+            </div>
+            <div class="field">
+              <label for="">Purpose</label>
+              {{this.purpose}}
+            </div>
           </div>
           <div class="field">
-            <label for="">Middle Name</label>
-            {{this.senderMiddleName}}
+            <label for="">Comment</label>
+            {{this.comment}}
           </div>
-          <div class="field">
-            <label for="">Last Name</label>
-            {{this.senderLastName}}
+          <h4 class="ui dividing header" style="color: #001737    ">Receiver</h4>
+          <div class="two fields">
+            <div class="field">
+              <label for="">Remittance Type</label>
+              {{this.remittanceType}}
+            </div>
+            <div class="field">
+              <label for="">MMT Types</label>
+              {{this.mmtType}}
+            </div>
           </div>
-        </div>
-        <div class="three fields">
-          <div class="field">
-            <label for="">Customer Type</label>
-            {{this.customerType}}
-          </div>
-          <div class="field">
-            <label for="">Mobile</label>
-            {{this.senderMobileNumber}}
-          </div>
-          <div class="field">
-            <label for="">Tel</label>
-            {{this.senderTel}}
-          </div>
-        </div>
-        <div class="three fields">
-          <div class="field">
-            <label for="">Mother</label>
-            {{this.senderMotherName}}
-          </div>
-          <div class="field">
-            <label for="">Relationship</label>
-            {{this.relationship}}
-          </div>
-          <div class="field">
-            <label for="">Purpose</label>
-            {{this.purpose}}
-          </div>
-        </div>
-        <div class="field">
-          <label for="">Comment</label>
-          {{this.comment}}
-        </div>
-        <h4 class="ui dividing header" style="color: #001737    ">Receiver</h4>
-        <div class="two fields">
-          <div class="field">
-            <label for="">Remittance Type</label>
-            {{this.remittanceType}}
-          </div>
-          <div class="field">
-            <label for="">MMT Types</label>
-            {{this.mmtType}}
-          </div>
-        </div>
-        <div class="two fields">
-          <div class="field">
-            <label for="">Mobile</label>
-            {{this.receiverMobile}}
-          </div>
-          <div class="field">
-            <label for="">Full Name</label>
-            {{this.receiverFullName}}
+          <div class="two fields">
+            <div class="field">
+              <label for="">Mobile</label>
+              {{this.receiverMobile}}
+            </div>
+            <div class="field">
+              <label for="">Full Name</label>
+              {{this.receiverFullName}}
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="eight wide column">
-      <div class="ui form">
-        <h4 class="ui dividing header" style="color: #001737    ">Amount</h4>
-        <div class="three fields">
-          <div class="field">
-            <label for="">Amount</label>
-            {{this.amount}}
+      <div class="ui raised segment">
+        <div class="ui form">
+          <h4 class="ui dividing header" style="color: #001737    ">Amount</h4>
+          <div class="three fields">
+            <div class="field">
+              <label for="">Amount</label>
+              {{this.amount}}
+            </div>
+            <div class="field">
+              <label for="">Currency</label>
+              {{this.currency}}
+            </div>
+            <div class="field">
+              <label for="">Service Percentage</label>
+              {{this.servicePercentage}}
+            </div>
           </div>
-          <div class="field">
-            <label for="">Currency</label>
-            {{this.currency}}
+          <div class="three fields">
+            <div class="field">
+              <label for="">Service Charges</label>
+              {{this.serviceCharges}}
+            </div>
+            <div class="field">
+              <label for="">Total Amount</label>
+              {{this.totalAmount}}
+            </div>
+            <div class="field">
+              <label for="">Currency to Rate</label>
+              {{this.currencyRate}}
+            </div>
           </div>
-          <div class="field">
-            <label for="">Service Percentage</label>
-            {{this.servicePercentage}}
+          <div class="three fields">
+            <div class="field">
+              <label for="">Curr to Curr</label>
+              {{this.currToCurr}}
+            </div>
+            <div class="field">
+              <label for="">Receiving Amount</label>
+              {{this.receivingAmount}}
+            </div>
+            <div class="field">
+              <label for="">Total Amount in {{this.currency}}</label>
+              {{this.currency}}
+            </div>
           </div>
-        </div>
-        <div class="three fields">
+          <h4 class="ui dividing header" style="color: #001737    ">Payment</h4>
           <div class="field">
-            <label for="">Service Charges</label>
-            {{this.serviceCharges}}
+            <label for="">Payment Type</label>
+            {{this.paymentType}}
           </div>
           <div class="field">
             <label for="">Total Amount</label>
-            {{this.totalAmount}}
+            {{this.paymentAmount}}
           </div>
-          <div class="field">
-            <label for="">Currency to Rate</label>
-            {{this.currencyRate}}
-          </div>
-        </div>
-        <div class="three fields">
-          <div class="field">
-            <label for="">Curr to Curr</label>
-            {{this.currToCurr}}
-          </div>
-          <div class="field">
-            <label for="">Receiving Amount</label>
-            {{this.receivingAmount}}
-          </div>
-          <div class="field">
-            <label for="">Total Amount in {{this.currency}}</label>
-            {{this.currency}}
-          </div>
-        </div>
-        <h4 class="ui dividing header" style="color: #001737    ">Payment</h4>
-        <div class="field">
-          <label for="">Payment Type</label>
-          {{this.paymentType}}
-        </div>
-        <div class="field">
-          <label for="">Total Amount</label>
-          {{this.paymentAmount}}
         </div>
       </div>
     </div>
