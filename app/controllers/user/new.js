@@ -17,7 +17,6 @@ export default Controller.extend({
     actions: {
         save() {
             const user = {
-                id: 7,
                 firstName: this.firstName,
                 lastName: this.lastName,
                 address: this.address,

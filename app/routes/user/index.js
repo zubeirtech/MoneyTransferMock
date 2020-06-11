@@ -217,7 +217,6 @@ export default Route.extend({
   afterModel(model) {
     if (localStorage.getItem("sender")) {
       const sender = {
-        id: 5,
         firstName: localStorage.getItem("sender"),
         lastName: "smith",
         address: "azmistreet 12, 89320 WA, US",
@@ -229,7 +228,6 @@ export default Route.extend({
       };
 
       const receiver = {
-        id: 6,
         firstName: localStorage.getItem("receiver"),
         lastName: "johnson",
         address: "chirostreet 12, 89320 WA, US",
@@ -239,6 +237,8 @@ export default Route.extend({
         mobile: this.generateRandomNumber(),
         email: `${localStorage.getItem("receiver")}@mail.com`,
       };
+      sender.id = model.length+1;
+      receiver.id = model.length+1;
 
       model.pushObject(sender);
       model.pushObject(receiver);
@@ -246,6 +246,7 @@ export default Route.extend({
 
     if (localStorage.getItem("newUser")) {
       const newUser = JSON.parse(localStorage.getItem("newUser"));
+      newUser.id = model.length+1;
       model.pushObject(newUser);
     }
   },
