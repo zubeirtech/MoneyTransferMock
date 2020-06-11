@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('info', {path: ':id'}, function() {
       this.route('approve');
     });
+    this.route('trace');
   });
   this.route('user', function() {
     this.route('new');
