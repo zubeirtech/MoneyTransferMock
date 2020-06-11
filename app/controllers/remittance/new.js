@@ -57,6 +57,8 @@ export default Controller.extend({
         const str = JSON.stringify(remittance);
         this.toastr.success("Remittance has been successfully created", "Great!");
         localStorage.setItem("newRem", str);
+        localStorage.setItem("sender", this.senderFirstName);
+        localStorage.setItem("receiver", this.receiverFullName);
         window.location.href = "/remittance"
     },
 

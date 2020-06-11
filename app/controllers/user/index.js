@@ -222,7 +222,6 @@ export default Controller.extend({
 
                   if (localStorage.getItem("sender")) {
                     const sender = {
-                      id: 5,
                       firstName: localStorage.getItem("sender"),
                       lastName: "smith",
                       address: "azmistreet 12, 89320 WA, US",
@@ -234,7 +233,6 @@ export default Controller.extend({
                     };
               
                     const receiver = {
-                      id: 6,
                       firstName: localStorage.getItem("receiver"),
                       lastName: "johnson",
                       address: "chirostreet 12, 89320 WA, US",
@@ -244,6 +242,8 @@ export default Controller.extend({
                       mobile: this.generateRandomNumber(),
                       email: `${localStorage.getItem("receiver")}@mail.com`,
                     };
+                    sender.id = this.model.length+1;
+                    receiver.id = this.model.length+2;
               
                     this.model.pushObject(sender);
                     this.model.pushObject(receiver);
@@ -251,25 +251,9 @@ export default Controller.extend({
               
                   if (localStorage.getItem("newUser")) {
                     const newUser = JSON.parse(localStorage.getItem("newUser"));
+                    newUser.id = this.model.length+1;
                     this.model.pushObject(newUser);
-                  }if (localStorage.getItem("sender")) {
-                    const sender = {
-                        firstName: localStorage.getItem("sender"),
-                        lastName: "smith",
-                        mobile: this.generateRandomNumber(),
-                        email: `${localStorage.getItem("sender")}@mail.com`
-                    }
-
-                    const receiver = {
-                        firstName: localStorage.getItem("receiver"),
-                        lastName: "johnson",
-                        mobile: this.generateRandomNumber(),
-                        email: `${localStorage.getItem("receiver")}@mail.com`
-                    }
-
-                    this.model.pushObject(sender);
-                    this.model.pushObject(receiver);
-                }
+                  }
             }
         }
     }

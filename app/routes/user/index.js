@@ -238,7 +238,7 @@ export default Route.extend({
         email: `${localStorage.getItem("receiver")}@mail.com`,
       };
       sender.id = model.length+1;
-      receiver.id = model.length+1;
+      receiver.id = model.length+2;
 
       model.pushObject(sender);
       model.pushObject(receiver);
